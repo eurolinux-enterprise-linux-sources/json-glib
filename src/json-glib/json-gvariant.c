@@ -440,7 +440,7 @@ json_gvariant_serialize_data (GVariant *variant, gsize *length)
 
   g_object_unref (generator);
 
-  json_node_free (json_node);
+  json_node_unref (json_node);
 
   return json;
 }
@@ -516,10 +516,10 @@ json_node_assert_type (JsonNode       *json_node,
       (type == JSON_NODE_VALUE &&
        (json_node_get_value_type (json_node) != sub_type)))
     {
-      /* translators: the '%s' is the type name */
       g_set_error (error,
                    G_IO_ERROR,
                    G_IO_ERROR_INVALID_DATA,
+                   /* translators: the '%s' is the type name */
                    _("Unexpected type '%s' in JSON node"),
                    g_type_name (json_node_get_value_type (json_node)));
       return FALSE;
@@ -761,7 +761,7 @@ json_to_gvariant_array (JsonNode     *json_node,
   JsonArray *array;
   GList *children = NULL;
   gboolean roll_back = FALSE;
-  const gchar *orig_signature;
+  const gchar *orig_signature = NULL;
   gchar *child_signature;
 
   array = json_node_get_array (json_node);
@@ -1193,7 +1193,11 @@ json_to_gvariant_recurse (JsonNode      *json_node,
       break;
 
     case G_VARIANT_CLASS_DOUBLE:
-      if (json_node_assert_type (json_node, JSON_NODE_VALUE, G_TYPE_DOUBLE, error))
+      /* Doubles can look like ints to the json parser: when they don't have a dot */
+      if (JSON_NODE_TYPE (json_node) == JSON_NODE_VALUE &&
+          json_node_get_value_type (json_node) == G_TYPE_INT64)
+        variant = g_variant_new_double (json_node_get_int (json_node));
+      else if (json_node_assert_type (json_node, JSON_NODE_VALUE, G_TYPE_DOUBLE, error))
         variant = g_variant_new_double (json_node_get_double (json_node));
       break;
 

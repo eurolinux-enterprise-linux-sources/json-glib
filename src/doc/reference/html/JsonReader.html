@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSON-GLib Reference Manual: JsonReader</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<title>JsonReader: JSON-GLib Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="JSON-GLib Reference Manual">
 <link rel="up" href="ch02.html" title="Parser">
 <link rel="prev" href="JsonParser.html" title="JsonParser">
 <link rel="next" href="JsonPath.html" title="JsonPath">
-<meta name="generator" content="GTK-Doc V1.20.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -35,7 +35,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="JsonReader.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -146,7 +146,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="JsonReader.html#json-reader-get-value" title="json_reader_get_value ()">json_reader_get_value</a> <span class="c_punctuation">()</span>
@@ -192,10 +192,6 @@
 </td>
 </tr>
 <tr>
-<td class="define_keyword">#define</td>
-<td class="function_name"><a class="link" href="JsonReader.html#JSON-READER-ERROR:CAPS" title="JSON_READER_ERROR">JSON_READER_ERROR</a></td>
-</tr>
-<tr>
 <td class="function_type">const <span class="returnvalue">GError</span> *
 </td>
 <td class="function_name">
@@ -207,7 +203,7 @@
 </div>
 <div class="refsect1">
 <a name="JsonReader.properties"></a><h2>Properties</h2>
-<div class="informaltable"><table border="0">
+<div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
 <col width="150px" class="properties_type">
 <col width="300px" class="properties_name">
@@ -215,7 +211,7 @@
 </colgroup>
 <tbody><tr>
 <td class="property_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *</td>
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *</td>
 <td class="property_name"><a class="link" href="JsonReader.html#JsonReader--root" title="The “root” property">root</a></td>
 <td class="property_flags">Read / Write / Construct</td>
 </tr></tbody>
@@ -223,7 +219,7 @@
 </div>
 <div class="refsect1">
 <a name="JsonReader.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -240,6 +236,10 @@
 <tr>
 <td class="datatype_keyword">enum</td>
 <td class="function_name"><a class="link" href="JsonReader.html#JsonReaderError" title="enum JsonReaderError">JsonReaderError</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="JsonReader.html#JSON-READER-ERROR:CAPS" title="JSON_READER_ERROR">JSON_READER_ERROR</a></td>
 </tr>
 </tbody>
 </table></div>
@@ -320,13 +320,13 @@ called, e.g.:</p>
 <div class="refsect2">
 <a name="json-reader-new"></a><h3>json_reader_new ()</h3>
 <pre class="programlisting"><a class="link" href="JsonReader.html" title="JsonReader"><span class="returnvalue">JsonReader</span></a> *
-json_reader_new (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+json_reader_new (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>Creates a new <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a>. You can use this object to read the contents of
 the JSON tree starting from <em class="parameter"><code>node</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -334,34 +334,33 @@ the JSON tree starting from <em class="parameter"><code>node</code></em>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.2.6"></a><h4>Returns</h4>
+<a name="json-reader-new.returns"></a><h4>Returns</h4>
 <p> the newly created <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a>. Use <code class="function">g_object_unref()</code> to
 release the allocated resources when done</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-reader-set-root"></a><h3>json_reader_set_root ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 json_reader_set_root (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>,
-                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *root</code></em>);</pre>
-<p>Sets the root <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> to be read by <em class="parameter"><code>reader</code></em>
+                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *root</code></em>);</pre>
+<p>Sets the root <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> to be read by <em class="parameter"><code>reader</code></em>
 . The <em class="parameter"><code>reader</code></em>
  will take
 a copy of <em class="parameter"><code>root</code></em>
 </p>
-<p>If another <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> is currently set as root, it will be replaced.</p>
+<p>If another <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> is currently set as root, it will be replaced.</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.3.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-set-root.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -375,13 +374,13 @@ a copy of <em class="parameter"><code>root</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>root</p></td>
-<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -439,10 +438,40 @@ reposition the cursor inside the <a class="link" href="JsonReader.html" title="J
  is not currently on an array or an object, or if the <em class="parameter"><code>index_</code></em>
  is
 bigger than the size of the array or the object, the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> will be
-put in an error state until <a class="link" href="JsonReader.html#json-reader-end-element" title="json_reader_end_element ()"><code class="function">json_reader_end_element()</code></a> is called.</p>
+put in an error state until <a class="link" href="JsonReader.html#json-reader-end-element" title="json_reader_end_element ()"><code class="function">json_reader_end_element()</code></a> is called. This means
+that if used conditionally, <a class="link" href="JsonReader.html#json-reader-end-element" title="json_reader_end_element ()"><code class="function">json_reader_end_element()</code></a> must be called on both
+code paths:</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="function"><a href="JsonReader.html#json-reader-read-element">json_reader_read_element</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">reader</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">))</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="function"><a href="JsonReader.html#json-reader-end-element">json_reader_end_element</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">reader</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function">g_set_error</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">,</span><span class="normal"> …</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="keyword">return</span><span class="normal"> FALSE</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="cbracket">}</span>
+
+<span class="normal">str_value </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="JsonReader.html#json-reader-get-string-value">json_reader_get_string_value</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">reader</span><span class="symbol">);</span>
+<span class="function"><a href="JsonReader.html#json-reader-end-element">json_reader_end_element</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">reader</span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.4.12"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-read-element.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -463,11 +492,10 @@ put in an error state until <a class="link" href="JsonReader.html#json-reader-en
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.4.13"></a><h4>Returns</h4>
+<a name="json-reader-read-element.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> on success, and <code class="literal">FALSE</code> otherwise</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -479,8 +507,8 @@ inside an array</p>
 <p>This function resets the error state of <em class="parameter"><code>reader</code></em>
 , if any was set</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.5.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-end-element.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -493,7 +521,7 @@ inside an array</p>
 </tr></tbody>
 </table></div>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -503,8 +531,8 @@ json_reader_is_array (<em class="parameter"><code><a class="link" href="JsonRead
 <p>Checks whether the <em class="parameter"><code>reader</code></em>
  is currently on an array</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-is-array.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -518,12 +546,11 @@ json_reader_is_array (<em class="parameter"><code><a class="link" href="JsonRead
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.6.6"></a><h4>Returns</h4>
+<a name="json-reader-is-array.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> if the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> is on an array, and <code class="literal">FALSE</code>
 otherwise</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -534,8 +561,8 @@ json_reader_count_elements (<em class="parameter"><code><a class="link" href="Js
  is
 positioned on an array</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-count-elements.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -549,12 +576,11 @@ positioned on an array</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.7.6"></a><h4>Returns</h4>
+<a name="json-reader-count-elements.returns"></a><h4>Returns</h4>
 <p> the number of elements, or -1. In case of failure
 the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> is set in an error state</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -612,10 +638,39 @@ reposition the cursor inside the <a class="link" href="JsonReader.html" title="J
  is not currently on an object, or if the <em class="parameter"><code>member_name</code></em>
  is not
 defined in the object, the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> will be put in an error state until
-<a class="link" href="JsonReader.html#json-reader-end-member" title="json_reader_end_member ()"><code class="function">json_reader_end_member()</code></a> is called.</p>
+<a class="link" href="JsonReader.html#json-reader-end-member" title="json_reader_end_member ()"><code class="function">json_reader_end_member()</code></a> is called. This means that if used conditionally,
+<a class="link" href="JsonReader.html#json-reader-end-member" title="json_reader_end_member ()"><code class="function">json_reader_end_member()</code></a> must be called on both code paths:</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="function"><a href="JsonReader.html#json-reader-read-member">json_reader_read_member</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">reader</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"title"</span><span class="symbol">))</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="function"><a href="JsonReader.html#json-reader-end-member">json_reader_end_member</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">reader</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function">g_set_error</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">,</span><span class="normal"> …</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="keyword">return</span><span class="normal"> FALSE</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="cbracket">}</span>
+
+<span class="normal">str_value </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="JsonReader.html#json-reader-get-string-value">json_reader_get_string_value</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">reader</span><span class="symbol">);</span>
+<span class="function"><a href="JsonReader.html#json-reader-end-member">json_reader_end_member</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">reader</span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.8.12"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-read-member.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -636,11 +691,10 @@ defined in the object, the <a class="link" href="JsonReader.html" title="JsonRea
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.8.13"></a><h4>Returns</h4>
+<a name="json-reader-read-member.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> on success, and <code class="literal">FALSE</code> otherwise</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -652,8 +706,8 @@ inside an object</p>
 <p>This function resets the error state of <em class="parameter"><code>reader</code></em>
 , if any was set</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.9.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-end-member.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -666,7 +720,7 @@ inside an object</p>
 </tr></tbody>
 </table></div>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -676,8 +730,8 @@ json_reader_is_object (<em class="parameter"><code><a class="link" href="JsonRea
 <p>Checks whether the <em class="parameter"><code>reader</code></em>
  is currently on an object</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.10.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-is-object.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -691,12 +745,11 @@ json_reader_is_object (<em class="parameter"><code><a class="link" href="JsonRea
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.10.6"></a><h4>Returns</h4>
+<a name="json-reader-is-object.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> if the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> is on an object, and <code class="literal">FALSE</code>
 otherwise</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -707,8 +760,8 @@ json_reader_count_members (<em class="parameter"><code><a class="link" href="Jso
  is
 positioned on an object</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.11.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-count-members.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -722,12 +775,11 @@ positioned on an object</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.11.6"></a><h4>Returns</h4>
+<a name="json-reader-count-members.returns"></a><h4>Returns</h4>
 <p> the number of members, or -1. In case of failure
 the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> is set in an error state</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -738,8 +790,8 @@ json_reader_list_members (<em class="parameter"><code><a class="link" href="Json
 
 is positioned on an object.</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.12.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-list-members.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -753,13 +805,13 @@ is positioned on an object.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.12.6"></a><h4>Returns</h4>
+<a name="json-reader-list-members.returns"></a><h4>Returns</h4>
 <p> a newly allocated, <code class="literal">NULL</code>-terminated
 array of strings holding the members name. Use <code class="function">g_strfreev()</code> when
 done. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.14</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-0.14">0.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -768,8 +820,8 @@ done. </p>
 json_reader_get_member_name (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
 <p>Retrieves the name of the current member.</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.13.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-get-member-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -783,11 +835,11 @@ json_reader_get_member_name (<em class="parameter"><code><a class="link" href="J
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.13.6"></a><h4>Returns</h4>
+<a name="json-reader-get-member-name.returns"></a><h4>Returns</h4>
 <p> the name of the member, or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.14</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-0.14">0.14</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -797,8 +849,8 @@ json_reader_is_value (<em class="parameter"><code><a class="link" href="JsonRead
 <p>Checks whether the <em class="parameter"><code>reader</code></em>
  is currently on a value</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.14.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-is-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -812,23 +864,22 @@ json_reader_is_value (<em class="parameter"><code><a class="link" href="JsonRead
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.14.6"></a><h4>Returns</h4>
+<a name="json-reader-is-value.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> if the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> is on a value, and <code class="literal">FALSE</code>
 otherwise</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-reader-get-value"></a><h3>json_reader_get_value ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 json_reader_get_value (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
-<p>Retrieves the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of the current position of <em class="parameter"><code>reader</code></em>
+<p>Retrieves the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of the current position of <em class="parameter"><code>reader</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.15.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-get-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -842,13 +893,13 @@ json_reader_get_value (<em class="parameter"><code><a class="link" href="JsonRea
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.15.6"></a><h4>Returns</h4>
-<p> a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>, or <code class="literal">NULL</code>. The returned node
+<a name="json-reader-get-value.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>, or <code class="literal">NULL</code>. The returned node
 is owned by the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> and it should not be modified or freed
 directly. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -858,8 +909,8 @@ json_reader_get_int_value (<em class="parameter"><code><a class="link" href="Jso
 <p>Retrieves the integer value of the current position of <em class="parameter"><code>reader</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.16.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-get-int-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -873,11 +924,10 @@ json_reader_get_int_value (<em class="parameter"><code><a class="link" href="Jso
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.16.6"></a><h4>Returns</h4>
+<a name="json-reader-get-int-value.returns"></a><h4>Returns</h4>
 <p> the integer value</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -887,8 +937,8 @@ json_reader_get_double_value (<em class="parameter"><code><a class="link" href="
 <p>Retrieves the floating point value of the current position of <em class="parameter"><code>reader</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.17.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-get-double-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -902,11 +952,10 @@ json_reader_get_double_value (<em class="parameter"><code><a class="link" href="
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.17.6"></a><h4>Returns</h4>
+<a name="json-reader-get-double-value.returns"></a><h4>Returns</h4>
 <p> the floating point value</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -916,8 +965,8 @@ json_reader_get_string_value (<em class="parameter"><code><a class="link" href="
 <p>Retrieves the string value of the current position of <em class="parameter"><code>reader</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.18.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-get-string-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -931,11 +980,10 @@ json_reader_get_string_value (<em class="parameter"><code><a class="link" href="
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.18.6"></a><h4>Returns</h4>
+<a name="json-reader-get-string-value.returns"></a><h4>Returns</h4>
 <p> the string value</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -945,8 +993,8 @@ json_reader_get_boolean_value (<em class="parameter"><code><a class="link" href=
 <p>Retrieves the boolean value of the current position of <em class="parameter"><code>reader</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.19.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-get-boolean-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -960,11 +1008,10 @@ json_reader_get_boolean_value (<em class="parameter"><code><a class="link" href=
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.19.6"></a><h4>Returns</h4>
+<a name="json-reader-get-boolean-value.returns"></a><h4>Returns</h4>
 <p> the boolean value</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -974,8 +1021,8 @@ json_reader_get_null_value (<em class="parameter"><code><a class="link" href="Js
 <p>Checks whether the value of the current position of <em class="parameter"><code>reader</code></em>
  is 'null'</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.20.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-get-null-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -989,19 +1036,10 @@ json_reader_get_null_value (<em class="parameter"><code><a class="link" href="Js
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.20.6"></a><h4>Returns</h4>
+<a name="json-reader-get-null-value.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> if 'null' is set, and <code class="literal">FALSE</code> otherwise</p>
-<p></p>
 </div>
-<p class="since">Since 0.12</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="JSON-READER-ERROR:CAPS"></a><h3>JSON_READER_ERROR</h3>
-<pre class="programlisting">#define JSON_READER_ERROR               (json_reader_error_quark ())
-</pre>
-<p>Error domain for <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> errors</p>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1012,8 +1050,8 @@ json_reader_get_error (<em class="parameter"><code><a class="link" href="JsonRea
 , if the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a>
 is in error state</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.22.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-reader-get-error.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1027,11 +1065,11 @@ is in error state</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.4.3.3.8.22.6"></a><h4>Returns</h4>
+<a name="json-reader-get-error.returns"></a><h4>Returns</h4>
 <p> the pointer to the error, or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -1041,7 +1079,7 @@ is in error state</p>
 <pre class="programlisting">struct JsonReader;</pre>
 <p>The <code class="literal">JsonReader</code> structure contains only private data and should
 be accessed using the provided API</p>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1050,15 +1088,15 @@ be accessed using the provided API</p>
 };
 </pre>
 <p>The <code class="literal">JsonReaderClass</code> structure contains only private data</p>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="JsonReaderError"></a><h3>enum JsonReaderError</h3>
 <p>Error codes enumeration for <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> errors</p>
 <div class="refsect3">
-<a name="id-1.4.3.3.9.4.4"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="JsonReaderError.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -1119,22 +1157,29 @@ be accessed using the provided API</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="JSON-READER-ERROR:CAPS"></a><h3>JSON_READER_ERROR</h3>
+<pre class="programlisting">#define JSON_READER_ERROR               (json_reader_error_quark ())
+</pre>
+<p>Error domain for <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> errors</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 </div>
 <div class="refsect1">
 <a name="JsonReader.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="JsonReader--root"></a><h3>The <code class="literal">“root”</code> property</h3>
-<pre class="programlisting">  “root”                     <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *</pre>
+<pre class="programlisting">  “root”                     <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *</pre>
 <p>The root of the JSON tree that the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> should read.</p>
 <p>Flags: Read / Write / Construct</p>
-<p class="since">Since 0.12</p>
+<p class="since">Since: <a class="link" href="ix07.html#api-index-0.12">0.12</a></p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.20.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

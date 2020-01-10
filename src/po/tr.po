@@ -2,92 +2,120 @@
 # Copyright (C) 2011 json-glib's COPYRIGHT HOLDER
 # This file is distributed under the same license as the json-glib package.
 #
-# Muhammet Kara <muhammet.k@gmail.com>, 2011.
+# Yaşar Şentürk <yasarix@gmail.com>, 2014.
+# Muhammet Kara <muhammetk@gmail.com>, 2011, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: json-glib master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=json-"
 "glib\n"
-"POT-Creation-Date: 2014-05-30 18:34+0100\n"
-"PO-Revision-Date: 2011-11-16 12:18+0200\n"
-"Last-Translator: Muhammet Kara <muhammet.k@gmail.com>\n"
-"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"POT-Creation-Date: 2017-03-13 14:53+0000\n"
+"PO-Revision-Date: 2014-12-04 23:35+0200\n"
+"Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
+"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: json-glib/json-glib-format.c:50
 msgid "Prettify output"
-msgstr ""
+msgstr "Çıktıyı güzelleştir"
 
 #: json-glib/json-glib-format.c:51
 msgid "Indentation spaces"
-msgstr ""
+msgstr "Girinti boşluğu"
 
+#. Translators: the first %s is the program name, the second one
+#. * is the URI of the file, the third is the error message.
+#.
 #: json-glib/json-glib-format.c:77 json-glib/json-glib-validate.c:63
 #, c-format
 msgid "%s: %s: error opening file: %s\n"
-msgstr ""
+msgstr "%s: %s: dosyayı açarken hata: %s\n"
 
+#. Translators: the first %s is the program name, the second one
+#. * is the URI of the file, the third is the error message.
+#.
 #: json-glib/json-glib-format.c:89 json-glib/json-glib-validate.c:75
 #, c-format
 msgid "%s: %s: error parsing file: %s\n"
-msgstr ""
+msgstr "%s: %s: dosyayı ayrıştırırken hata: %s\n"
 
+#. Translators: the first %s is the program name, the
+#. * second one is the URI of the file.
+#.
 #: json-glib/json-glib-format.c:108
 #, c-format
 msgid "%s: %s: error writing to stdout"
-msgstr ""
+msgstr "%s: %s: stdout'a yazarken hata"
 
-#: json-glib/json-glib-format.c:128 json-glib/json-glib-validate.c:87
-#, fuzzy, c-format
+#. Translators: the first %s is the program name, the second one
+#. * is the URI of the file, the third is the error message.
+#.
+#: json-glib/json-glib-format.c:129 json-glib/json-glib-validate.c:87
+#, c-format
 msgid "%s: %s: error closing: %s\n"
-msgstr "%s:%d: Ayrıştırma hatası: %s"
+msgstr "%s: %s: kapatma hatası: %s\n"
 
-#: json-glib/json-glib-format.c:157 json-glib/json-glib-validate.c:115
+#: json-glib/json-glib-format.c:158 json-glib/json-glib-validate.c:115
 msgid "FILE"
-msgstr ""
+msgstr "DOSYA"
 
-#: json-glib/json-glib-format.c:160
-msgid "Format JSON files."
-msgstr ""
-
+#. Translators: this message will appear after the usage string
+#. and before the list of options.
 #: json-glib/json-glib-format.c:161
-msgid "json-glib-format formats JSON resources."
-msgstr ""
+msgid "Format JSON files."
+msgstr "JSON dosyalarını biçimle."
 
-#: json-glib/json-glib-format.c:178 json-glib/json-glib-validate.c:136
+#: json-glib/json-glib-format.c:162
+msgid "json-glib-format formats JSON resources."
+msgstr "json-glib-format, JSON verilerini biçimlendirir."
+
+#. Translators: the %s is the program name. This error message
+#. * means the user is calling json-glib-validate without any
+#. * argument.
+#.
+#: json-glib/json-glib-format.c:179 json-glib/json-glib-validate.c:136
 #, c-format
 msgid "Error parsing commandline options: %s\n"
-msgstr ""
+msgstr "Komut satırı seçeneklerini ayrıştırırken hata: %s\n"
 
-#: json-glib/json-glib-format.c:180 json-glib/json-glib-format.c:194
+#: json-glib/json-glib-format.c:181 json-glib/json-glib-format.c:195
 #: json-glib/json-glib-validate.c:138 json-glib/json-glib-validate.c:152
 #, c-format
 msgid "Try \"%s --help\" for more information."
-msgstr ""
+msgstr "Daha fazla bilgi için \"%s --help\" komutunu girin."
 
-#: json-glib/json-glib-format.c:192 json-glib/json-glib-validate.c:150
+#. Translators: the %s is the program name. This error message
+#. * means the user is calling json-glib-validate without any
+#. * argument.
+#.
+#: json-glib/json-glib-format.c:193 json-glib/json-glib-validate.c:150
 #, c-format
 msgid "%s: missing files"
-msgstr ""
+msgstr "%s: dosyalar eksik"
 
+#. Translators: this message will appear after the usage string
+#. and before the list of options.
 #: json-glib/json-glib-validate.c:118
 msgid "Validate JSON files."
-msgstr ""
+msgstr "JSON dosyalarını doğrula."
 
 #: json-glib/json-glib-validate.c:119
 msgid "json-glib-validate validates JSON data at the given URI."
-msgstr ""
+msgstr "json-glib-validate verilen URI'deki JSON verisini doğrular."
 
-#: json-glib/json-gobject.c:915
+#. translators: the %s is the name of the data structure
+#: json-glib/json-gobject.c:943
 #, c-format
 msgid "Expecting a JSON object, but the root node is of type `%s'"
 msgstr "Bir JSON nesnesi bekleniyor, ama kök düğümü `%s' türünde"
 
+#. translators: the '%s' is the type name
 #: json-glib/json-gvariant.c:523
 #, c-format
 msgid "Unexpected type '%s' in JSON node"
@@ -115,32 +143,37 @@ msgid ""
 msgstr ""
 "Bir GVariant sözlük girdisi, tam olarak bir üyesi olan JSON nesnesi bekler"
 
-#: json-glib/json-gvariant.c:1244
+#: json-glib/json-gvariant.c:1248
 #, c-format
 msgid "GVariant class '%c' not supported"
 msgstr "GVariant sınıfı '%c' desteklenmiyor"
 
-#: json-glib/json-gvariant.c:1292
+#: json-glib/json-gvariant.c:1296
 msgid "Invalid GVariant signature"
 msgstr "Geçersiz GVariant imzası"
 
-#: json-glib/json-gvariant.c:1340
+#: json-glib/json-gvariant.c:1344
 msgid "JSON data is empty"
 msgstr "JSON verisi boş"
 
-#: json-glib/json-parser.c:815
-#, fuzzy, c-format
+#. translators: %s: is the file name, the first %d is the line
+#. * number, the second %d is the position on the line, and %s is
+#. * the error message
+#.
+#: json-glib/json-parser.c:907
+#, c-format
 msgid "%s:%d:%d: Parse error: %s"
-msgstr "%s:%d: Ayrıştırma hatası: %s"
+msgstr "%s:%d:%d: Ayrıştırma hatası: %s"
 
-#: json-glib/json-parser.c:883
+#: json-glib/json-parser.c:990
 msgid "JSON data must be UTF-8 encoded"
-msgstr ""
+msgstr "JSON verisi UTF-8 ile kodlanmış olmalıdır"
 
 #: json-glib/json-path.c:388
 msgid "Only one root node is allowed in a JSONPath expression"
 msgstr "JSONPath ifadesinde yalnızca bir kök düğümüne izin verilir"
 
+#. translators: the %c is the invalid character
 #: json-glib/json-path.c:397
 #, c-format
 msgid "Root node followed by invalid character '%c'"
@@ -148,7 +181,7 @@ msgstr "Kök düğümünü izleyen '%c' karakteri geçersiz"
 
 #: json-glib/json-path.c:437
 msgid "Missing member name or wildcard after . character"
-msgstr ""
+msgstr "Öge ismi ya da . karakterinden sonraki joker karakter eksik"
 
 #: json-glib/json-path.c:511
 #, c-format
@@ -173,63 +206,63 @@ msgstr "Geçersiz dizi indisi tanımı '%*s'"
 #: json-glib/json-path.c:655
 #, c-format
 msgid "Invalid first character '%c'"
-msgstr ""
+msgstr "Geçersiz ilk karakter '%c'"
 
-#: json-glib/json-reader.c:456
+#: json-glib/json-reader.c:474
 #, c-format
 msgid ""
 "The current node is of type '%s', but an array or an object was expected."
 msgstr "Geçerli düğümün türü '%s', ama bir dizi ya da bir nesne bekleniyordu."
 
-#: json-glib/json-reader.c:468
+#: json-glib/json-reader.c:486
 #, c-format
 msgid ""
 "The index '%d' is greater than the size of the array at the current position."
 msgstr "'%d' indisi, geçerli konumdaki dizinin boyutundan daha büyük."
 
-#: json-glib/json-reader.c:485
+#: json-glib/json-reader.c:503
 #, c-format
 msgid ""
 "The index '%d' is greater than the size of the object at the current "
 "position."
 msgstr "'%d' indisi, geçerli konumdaki nesnenin boyutundan daha büyük."
 
-#: json-glib/json-reader.c:570 json-glib/json-reader.c:724
-#: json-glib/json-reader.c:775 json-glib/json-reader.c:813
-#: json-glib/json-reader.c:851 json-glib/json-reader.c:889
-#: json-glib/json-reader.c:927 json-glib/json-reader.c:972
-#: json-glib/json-reader.c:1008 json-glib/json-reader.c:1034
+#: json-glib/json-reader.c:587 json-glib/json-reader.c:751
+#: json-glib/json-reader.c:802 json-glib/json-reader.c:840
+#: json-glib/json-reader.c:878 json-glib/json-reader.c:916
+#: json-glib/json-reader.c:954 json-glib/json-reader.c:999
+#: json-glib/json-reader.c:1035 json-glib/json-reader.c:1061
 msgid "No node available at the current position"
 msgstr "Geçerli konumda kullanılabilir düğüm yok"
 
-#: json-glib/json-reader.c:577
+#: json-glib/json-reader.c:594
 #, c-format
 msgid "The current position holds a '%s' and not an array"
 msgstr "Geçerli konum bir dizi değil '%s' bulunduruyor"
 
-#: json-glib/json-reader.c:640
+#: json-glib/json-reader.c:670
 #, c-format
 msgid "The current node is of type '%s', but an object was expected."
 msgstr "Geçerli düğümün türü '%s', ama bir nesne bekleniyordu."
 
-#: json-glib/json-reader.c:647
+#: json-glib/json-reader.c:677
 #, c-format
 msgid "The member '%s' is not defined in the object at the current position."
 msgstr "'%s' üyesi, geçerli konumdaki nesnede tanımlı değil."
 
-#: json-glib/json-reader.c:731 json-glib/json-reader.c:782
+#: json-glib/json-reader.c:758 json-glib/json-reader.c:809
 #, c-format
 msgid "The current position holds a '%s' and not an object"
 msgstr "Geçerli konum bir nesne değil '%s' bulunduruyor"
 
-#: json-glib/json-reader.c:822 json-glib/json-reader.c:860
-#: json-glib/json-reader.c:898 json-glib/json-reader.c:936
-#: json-glib/json-reader.c:981
+#: json-glib/json-reader.c:849 json-glib/json-reader.c:887
+#: json-glib/json-reader.c:925 json-glib/json-reader.c:963
+#: json-glib/json-reader.c:1008
 #, c-format
 msgid "The current position holds a '%s' and not a value"
 msgstr "Geçerli konum bir değer değil '%s' bulunduruyor"
 
-#: json-glib/json-reader.c:944
+#: json-glib/json-reader.c:971
 msgid "The current position does not hold a string type"
 msgstr "Geçerli konum bir dizge türü bulundurmuyor"
 

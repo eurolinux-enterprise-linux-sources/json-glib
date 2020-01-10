@@ -4,6 +4,7 @@
  *
  * Copyright © 2007, 2008, 2009 OpenedHand Ltd
  * Copyright © 2009, 2010 Intel Corp.
+ * Copyright © 2015 Collabora Ltd.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,6 +21,7 @@
  *
  * Author:
  *   Emmanuele Bassi  <ebassi@linux.intel.com>
+ *   Philip Withnall  <philip.withnall@collabora.co.uk>
  */
 
 /**
@@ -39,7 +41,6 @@
 #include "json-types-private.h"
 
 #include "json-debug.h"
-#include "json-marshal.h"
 #include "json-parser.h"
 #include "json-scanner.h"
 
@@ -58,6 +59,7 @@ struct _JsonParserPrivate
 
   guint has_assignment : 1;
   guint is_filename    : 1;
+  guint is_immutable   : 1;
 };
 
 static const gchar symbol_names[] =
@@ -96,6 +98,14 @@ enum
 
 static guint parser_signals[LAST_SIGNAL] = { 0, };
 
+enum
+{
+  PROP_IMMUTABLE = 1,
+  PROP_LAST
+};
+
+static GParamSpec *parser_props[PROP_LAST] = { NULL, };
+
 G_DEFINE_QUARK (json-parser-error-quark, json_parser_error)
 
 G_DEFINE_TYPE_WITH_PRIVATE (JsonParser, json_parser, G_TYPE_OBJECT)
@@ -123,7 +133,7 @@ json_parser_clear (JsonParser *parser)
 
   if (priv->root)
     {
-      json_node_free (priv->root);
+      json_node_unref (priv->root);
       priv->root = NULL;
     }
 }
@@ -148,12 +158,71 @@ json_parser_finalize (GObject *gobject)
 }
 
 static void
+json_parser_set_property (GObject      *gobject,
+                          guint         prop_id,
+                          const GValue *value,
+                          GParamSpec   *pspec)
+{
+  JsonParserPrivate *priv = JSON_PARSER (gobject)->priv;
+
+  switch (prop_id)
+    {
+    case PROP_IMMUTABLE:
+      /* Construct-only. */
+      priv->is_immutable = g_value_get_boolean (value);
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (gobject, prop_id, pspec);
+      break;
+    }
+}
+
+static void
+json_parser_get_property (GObject    *gobject,
+                          guint       prop_id,
+                          GValue     *value,
+                          GParamSpec *pspec)
+{
+  JsonParserPrivate *priv = JSON_PARSER (gobject)->priv;
+
+  switch (prop_id)
+    {
+    case PROP_IMMUTABLE:
+      g_value_set_boolean (value, priv->is_immutable);
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (gobject, prop_id, pspec);
+      break;
+    }
+}
+
+static void
 json_parser_class_init (JsonParserClass *klass)
 {
   GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 
+  gobject_class->set_property = json_parser_set_property;
+  gobject_class->get_property = json_parser_get_property;
   gobject_class->dispose = json_parser_dispose;
   gobject_class->finalize = json_parser_finalize;
+
+  /**
+   * JsonParser:immutable:
+   *
+   * Whether the #JsonNode tree built by the #JsonParser should be immutable
+   * when created. Making the output immutable on creation avoids the expense
+   * of traversing it to make it immutable later.
+   *
+   * Since: 1.2
+   */
+  parser_props[PROP_IMMUTABLE] =
+    g_param_spec_boolean ("immutable",
+                          "Immutable Output",
+                          "Whether the parser output is immutable.",
+                          FALSE,
+                          G_PARAM_CONSTRUCT_ONLY | G_PARAM_READWRITE);
+
+  g_object_class_install_properties (gobject_class, PROP_LAST, parser_props);
 
   /**
    * JsonParser::parse-start:
@@ -168,7 +237,7 @@ json_parser_class_init (JsonParserClass *klass)
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (JsonParserClass, parse_start),
                   NULL, NULL,
-                  _json_marshal_VOID__VOID,
+                  NULL,
                   G_TYPE_NONE, 0);
   /**
    * JsonParser::parse-end:
@@ -182,13 +251,12 @@ json_parser_class_init (JsonParserClass *klass)
                   G_OBJECT_CLASS_TYPE (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (JsonParserClass, parse_end),
-                  NULL, NULL,
-                  _json_marshal_VOID__VOID,
+                  NULL, NULL, NULL,
                   G_TYPE_NONE, 0);
   /**
    * JsonParser::object-start:
    * @parser: the #JsonParser that received the signal
-   * 
+   *
    * The ::object-start signal is emitted each time the #JsonParser
    * starts parsing a #JsonObject.
    */
@@ -197,8 +265,7 @@ json_parser_class_init (JsonParserClass *klass)
                   G_OBJECT_CLASS_TYPE (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (JsonParserClass, object_start),
-                  NULL, NULL,
-                  _json_marshal_VOID__VOID,
+                  NULL, NULL, NULL,
                   G_TYPE_NONE, 0);
   /**
    * JsonParser::object-member:
@@ -215,8 +282,7 @@ json_parser_class_init (JsonParserClass *klass)
                   G_OBJECT_CLASS_TYPE (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (JsonParserClass, object_member),
-                  NULL, NULL,
-                  _json_marshal_VOID__BOXED_STRING,
+                  NULL, NULL, NULL,
                   G_TYPE_NONE, 2,
                   JSON_TYPE_OBJECT,
                   G_TYPE_STRING);
@@ -233,8 +299,7 @@ json_parser_class_init (JsonParserClass *klass)
                   G_OBJECT_CLASS_TYPE (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (JsonParserClass, object_end),
-                  NULL, NULL,
-                  _json_marshal_VOID__BOXED,
+                  NULL, NULL, NULL,
                   G_TYPE_NONE, 1,
                   JSON_TYPE_OBJECT);
   /**
@@ -249,8 +314,7 @@ json_parser_class_init (JsonParserClass *klass)
                   G_OBJECT_CLASS_TYPE (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (JsonParserClass, array_start),
-                  NULL, NULL,
-                  _json_marshal_VOID__VOID,
+                  NULL, NULL, NULL,
                   G_TYPE_NONE, 0);
   /**
    * JsonParser::array-element:
@@ -267,8 +331,7 @@ json_parser_class_init (JsonParserClass *klass)
                   G_OBJECT_CLASS_TYPE (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (JsonParserClass, array_element),
-                  NULL, NULL,
-                  _json_marshal_VOID__BOXED_INT,
+                  NULL, NULL, NULL,
                   G_TYPE_NONE, 2,
                   JSON_TYPE_ARRAY,
                   G_TYPE_INT);
@@ -285,8 +348,7 @@ json_parser_class_init (JsonParserClass *klass)
                   G_OBJECT_CLASS_TYPE (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (JsonParserClass, array_end),
-                  NULL, NULL,
-                  _json_marshal_VOID__BOXED,
+                  NULL, NULL, NULL,
                   G_TYPE_NONE, 1,
                   JSON_TYPE_ARRAY);
   /**
@@ -302,8 +364,7 @@ json_parser_class_init (JsonParserClass *klass)
                   G_OBJECT_CLASS_TYPE (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (JsonParserClass, error),
-                  NULL, NULL,
-                  _json_marshal_VOID__POINTER,
+                  NULL, NULL, NULL,
                   G_TYPE_NONE, 1,
                   G_TYPE_POINTER);
 }
@@ -424,6 +485,9 @@ json_parse_value (JsonParser   *parser,
       break;
     }
 
+  if (priv->is_immutable && *node != NULL)
+    json_node_seal (*node);
+
   return G_TOKEN_NONE;
 }
 
@@ -480,7 +544,7 @@ json_parse_array (JsonParser   *parser,
         {
           /* the json_parse_* functions will have set the error code */
           json_array_unref (array);
-          json_node_free (priv->current_node);
+          json_node_unref (priv->current_node);
           priv->current_node = old_current;
 
           return token;
@@ -488,40 +552,61 @@ json_parse_array (JsonParser   *parser,
 
       next_token = json_scanner_peek_next_token (scanner);
 
+      /* look for missing commas */
+      if (next_token != G_TOKEN_COMMA && next_token != G_TOKEN_RIGHT_BRACE)
+        {
+          priv->error_code = JSON_PARSER_ERROR_MISSING_COMMA;
+
+          json_array_unref (array);
+          json_node_free (priv->current_node);
+          json_node_free (element);
+          priv->current_node = old_current;
+
+          return G_TOKEN_COMMA;
+        }
+
+      /* look for trailing commas */
       if (next_token == G_TOKEN_COMMA)
         {
           token = json_scanner_get_next_token (scanner);
           next_token = json_scanner_peek_next_token (scanner);
 
-          /* look for trailing commas */
           if (next_token == G_TOKEN_RIGHT_BRACE)
             {
               priv->error_code = JSON_PARSER_ERROR_TRAILING_COMMA;
 
               json_array_unref (array);
-              json_node_free (priv->current_node);
-              json_node_free (element);
+              json_node_unref (priv->current_node);
+              json_node_unref (element);
               priv->current_node = old_current;
 
               return G_TOKEN_RIGHT_BRACE;
             }
         }
 
-      JSON_NOTE (PARSER, "Array element %d completed", idx + 1);
+      JSON_NOTE (PARSER, "Array element %d completed", idx);
       json_node_set_parent (element, priv->current_node);
+      if (priv->is_immutable)
+        json_node_seal (element);
       json_array_add_element (array, element);
 
       g_signal_emit (parser, parser_signals[ARRAY_ELEMENT], 0,
                      array,
                      idx);
 
+      idx += 1;
       token = next_token;
     }
 
 array_done:
   json_scanner_get_next_token (scanner);
 
+  if (priv->is_immutable)
+    json_array_seal (array);
+
   json_node_take_array (priv->current_node, array);
+  if (priv->is_immutable)
+    json_node_seal (priv->current_node);
   json_node_set_parent (priv->current_node, old_current);
 
   g_signal_emit (parser, parser_signals[ARRAY_END], 0, array);
@@ -574,7 +659,7 @@ json_parse_object (JsonParser   *parser,
           priv->error_code = JSON_PARSER_ERROR_INVALID_BAREWORD;
 
           json_object_unref (object);
-          json_node_free (priv->current_node);
+          json_node_unref (priv->current_node);
           priv->current_node = old_current;
 
           return G_TOKEN_STRING;
@@ -583,14 +668,14 @@ json_parse_object (JsonParser   *parser,
       /* member name */
       token = json_scanner_get_next_token (scanner);
       name = g_strdup (scanner->value.v_string);
-      if (name == NULL || *name == '\0')
+      if (name == NULL)
         {
           JSON_NOTE (PARSER, "Empty object member name");
 
           priv->error_code = JSON_PARSER_ERROR_EMPTY_MEMBER_NAME;
 
           json_object_unref (object);
-          json_node_free (priv->current_node);
+          json_node_unref (priv->current_node);
           priv->current_node = old_current;
 
           return G_TOKEN_STRING;
@@ -608,7 +693,7 @@ json_parse_object (JsonParser   *parser,
 
           g_free (name);
           json_object_unref (object);
-          json_node_free (priv->current_node);
+          json_node_unref (priv->current_node);
           priv->current_node = old_current;
 
           return ':';
@@ -644,7 +729,7 @@ json_parse_object (JsonParser   *parser,
           /* the json_parse_* functions will have set the error code */
           g_free (name);
           json_object_unref (object);
-          json_node_free (priv->current_node);
+          json_node_unref (priv->current_node);
           priv->current_node = old_current;
 
           return token;
@@ -662,8 +747,8 @@ json_parse_object (JsonParser   *parser,
               priv->error_code = JSON_PARSER_ERROR_TRAILING_COMMA;
 
               json_object_unref (object);
-              json_node_free (member);
-              json_node_free (priv->current_node);
+              json_node_unref (member);
+              json_node_unref (priv->current_node);
               priv->current_node = old_current;
 
               return G_TOKEN_RIGHT_BRACE;
@@ -674,8 +759,8 @@ json_parse_object (JsonParser   *parser,
           priv->error_code = JSON_PARSER_ERROR_MISSING_COMMA;
 
           json_object_unref (object);
-          json_node_free (member);
-          json_node_free (priv->current_node);
+          json_node_unref (member);
+          json_node_unref (priv->current_node);
           priv->current_node = old_current;
 
           return G_TOKEN_COMMA;
@@ -683,6 +768,8 @@ json_parse_object (JsonParser   *parser,
 
       JSON_NOTE (PARSER, "Object member '%s' completed", name);
       json_node_set_parent (member, priv->current_node);
+      if (priv->is_immutable)
+        json_node_seal (member);
       json_object_set_member (object, name, member);
 
       g_signal_emit (parser, parser_signals[OBJECT_MEMBER], 0,
@@ -696,7 +783,12 @@ json_parse_object (JsonParser   *parser,
 
   json_scanner_get_next_token (scanner);
 
+  if (priv->is_immutable)
+    json_object_seal (object);
+
   json_node_take_object (priv->current_node, object);
+  if (priv->is_immutable)
+    json_node_seal (priv->current_node);
   json_node_set_parent (priv->current_node, old_current);
 
   g_signal_emit (parser, parser_signals[OBJECT_END], 0, object);
@@ -806,12 +898,12 @@ json_scanner_msg_handler (JsonScanner *scanner,
   JsonParserPrivate *priv = parser->priv;
   GError *error = NULL;
 
-  /* translators: %s: is the file name, the first %d is the line
-   * number, the second %d is the position on the line, and %s is
-   * the error message
-   */
   g_set_error (&error, JSON_PARSER_ERROR,
                priv->error_code,
+               /* translators: %s: is the file name, the first %d is the line
+                * number, the second %d is the position on the line, and %s is
+                * the error message
+                */
                _("%s:%d:%d: Parse error: %s"),
                priv->is_filename ? priv->filename : "<data>",
                scanner->line,
@@ -860,6 +952,21 @@ JsonParser *
 json_parser_new (void)
 {
   return g_object_new (JSON_TYPE_PARSER, NULL);
+}
+
+/**
+ * json_parser_new_immutable:
+ *
+ * Creates a new #JsonParser instance with its #JsonParser:immutable property
+ * set to %TRUE to create immutable output trees.
+ *
+ * Since: 1.2
+ * Returns: (transfer full): a new #JsonParser
+ */
+JsonParser *
+json_parser_new_immutable (void)
+{
+  return g_object_new (JSON_TYPE_PARSER, "immutable", TRUE, NULL);
 }
 
 static gboolean
@@ -1083,6 +1190,10 @@ json_parser_get_root (JsonParser *parser)
 {
   g_return_val_if_fail (JSON_IS_PARSER (parser), NULL);
 
+  /* Sanity check. */
+  g_return_val_if_fail (!parser->priv->is_immutable ||
+                        json_node_is_immutable (parser->priv->root), NULL);
+
   return parser->priv->root;
 }
 
@@ -1249,94 +1360,22 @@ out:
   return retval;
 }
 
-typedef struct _LoadStreamData
-{
-  JsonParser *parser;
-  GError *error;
-  GCancellable *cancellable;
-  GAsyncReadyCallback callback;
-  gpointer user_data;
+typedef struct {
+  GInputStream *stream;
   GByteArray *content;
   gsize pos;
-} LoadStreamData;
+} LoadData;
 
 static void
-load_stream_data_free (gpointer data)
+load_data_free (gpointer data_)
 {
-  LoadStreamData *closure;
-
-  if (G_UNLIKELY (data == NULL))
-    return;
-
-  closure = data;
-
-  if (closure->error)
-    g_error_free (closure->error);
-
-  if (closure->cancellable)
-    g_object_unref (closure->cancellable);
-
-  if (closure->content)
-    g_byte_array_free (closure->content, TRUE);
-
-  g_object_unref (closure->parser);
-
-  g_free (closure);
-}
-
-static void
-load_stream_data_read_callback (GObject      *object,
-                                GAsyncResult *read_res,
-                                gpointer      user_data)
-{
-  GInputStream *stream = G_INPUT_STREAM (object);
-  LoadStreamData *data = user_data;
-  GError *error = NULL;
-  gssize read_size;
-
-  read_size = g_input_stream_read_finish (stream, read_res, &error);
-  if (read_size < 0)
+  if (data_ != NULL)
     {
-      if (error != NULL)
-        data->error = error;
-      else
-        {
-          GSimpleAsyncResult *res;
+      LoadData *data = data_;
 
-          /* EOF */
-          res = g_simple_async_result_new (G_OBJECT (data->parser),
-                                           data->callback,
-                                           data->user_data,
-                                           json_parser_load_from_stream_async);
-          g_simple_async_result_set_op_res_gpointer (res, data, load_stream_data_free);
-          g_simple_async_result_complete (res);
-          g_object_unref (res);
-        }
-    }
-  else if (read_size > 0)
-    {
-      data->pos += read_size;
-
-      g_byte_array_set_size (data->content, data->pos + GET_DATA_BLOCK_SIZE);
-
-      g_input_stream_read_async (stream, data->content->data + data->pos,
-                                 GET_DATA_BLOCK_SIZE,
-                                 0,
-                                 data->cancellable,
-                                 load_stream_data_read_callback,
-                                 data);
-    }
-  else
-    {
-      GSimpleAsyncResult *res;
-
-      res = g_simple_async_result_new (G_OBJECT (data->parser),
-                                       data->callback,
-                                       data->user_data,
-                                       json_parser_load_from_stream_async);
-      g_simple_async_result_set_op_res_gpointer (res, data, load_stream_data_free);
-      g_simple_async_result_complete (res);
-      g_object_unref (res);
+      g_object_unref (data->stream);
+      g_byte_array_unref (data->content);
+      g_free (data);
     }
 }
 
@@ -1360,40 +1399,61 @@ json_parser_load_from_stream_finish (JsonParser    *parser,
                                      GAsyncResult  *result,
                                      GError       **error)
 {
-  GSimpleAsyncResult *simple;
-  GError *internal_error;
-  LoadStreamData *data;
   gboolean res;
 
   g_return_val_if_fail (JSON_IS_PARSER (parser), FALSE);
-  g_return_val_if_fail (G_IS_SIMPLE_ASYNC_RESULT (result), FALSE);
+  g_return_val_if_fail (g_task_is_valid (result, parser), FALSE);
 
-  simple = G_SIMPLE_ASYNC_RESULT (result);
-
-  if (g_simple_async_result_propagate_error (simple, error))
-    return FALSE;
-
-  g_warn_if_fail (g_simple_async_result_get_source_tag (simple) == json_parser_load_from_stream_async);
-
-  data = g_simple_async_result_get_op_res_gpointer (simple);
-
-  if (data->error)
+  res = g_task_propagate_boolean (G_TASK (result), error);
+  if (res)
     {
-      g_propagate_error (error, data->error);
-      data->error = NULL;
-      return FALSE;
+      LoadData *data = g_task_get_task_data (G_TASK (result));
+      GError *internal_error = NULL;
+
+      /* We need to do this inside the finis() function because JsonParser will emit
+       * signals, and we need to ensure that the signals are emitted in the right
+       * context; it's easier to do that if we just rely on the async callback being
+       * called in the right context, even if it means making the finish() function
+       * necessary to complete the async operation.
+       */
+      res = json_parser_load (parser, (const gchar *) data->content->data, data->pos, &internal_error);
+      if (internal_error != NULL)
+        g_propagate_error (error, internal_error);
     }
 
-  g_byte_array_set_size (data->content, data->pos + 1);
-  data->content->data[data->pos] = 0;
-
-  internal_error = NULL;
-  res = json_parser_load (parser, (const gchar *) data->content->data, data->pos, &internal_error);
-
-  if (internal_error != NULL)
-    g_propagate_error (error, internal_error);
-
   return res;
+}
+
+static void
+read_from_stream (GTask *task,
+                  gpointer source_obj,
+                  gpointer task_data,
+                  GCancellable *cancellable)
+{
+  LoadData *data = task_data;
+  GError *error = NULL;
+  gssize res;
+
+  data->pos = 0;
+  g_byte_array_set_size (data->content, data->pos + GET_DATA_BLOCK_SIZE + 1);
+  while ((res = g_input_stream_read (data->stream,
+                                     data->content->data + data->pos,
+                                     GET_DATA_BLOCK_SIZE,
+                                     cancellable, &error)) > 0)
+    {
+      data->pos += res;
+      g_byte_array_set_size (data->content, data->pos + GET_DATA_BLOCK_SIZE + 1);
+    }
+
+  if (res < 0)
+    {
+      g_task_return_error (task, error);
+      return;
+    }
+
+  /* zero-terminate the content; we allocated an extra byte for this */
+  data->content->data[data->pos] = 0;
+  g_task_return_boolean (task, TRUE);
 }
 
 /**
@@ -1422,26 +1482,21 @@ json_parser_load_from_stream_async (JsonParser          *parser,
                                     GAsyncReadyCallback  callback,
                                     gpointer             user_data)
 {
-  LoadStreamData *data;
+  LoadData *data;
+  GTask *task;
 
   g_return_if_fail (JSON_IS_PARSER (parser));
   g_return_if_fail (G_IS_INPUT_STREAM (stream));
   g_return_if_fail (cancellable == NULL || G_IS_CANCELLABLE (cancellable));
 
-  data = g_new0 (LoadStreamData, 1);
-
-  if (cancellable != NULL)
-    data->cancellable = g_object_ref (cancellable);
-
-  data->callback = callback;
-  data->user_data = user_data;
+  data = g_new (LoadData, 1);
+  data->stream = g_object_ref (stream);
   data->content = g_byte_array_new ();
-  data->parser = g_object_ref (parser);
+  data->pos = 0;
 
-  g_byte_array_set_size (data->content, data->pos + GET_DATA_BLOCK_SIZE);
-  g_input_stream_read_async (stream, data->content->data + data->pos,
-                             GET_DATA_BLOCK_SIZE, 0,
-                             data->cancellable,
-                             load_stream_data_read_callback,
-                             data);
+  task = g_task_new (parser, cancellable, callback, user_data);
+  g_task_set_task_data (task, data, load_data_free);
+
+  g_task_run_in_thread (task, read_from_stream);
+  g_object_unref (task);
 }

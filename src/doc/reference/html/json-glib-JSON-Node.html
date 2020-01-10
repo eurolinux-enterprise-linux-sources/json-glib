@@ -2,20 +2,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSON-GLib Reference Manual: JSON Node</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<title>JSON Node: JSON-GLib Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="JSON-GLib Reference Manual">
 <link rel="up" href="ch01.html" title="Data Types">
 <link rel="prev" href="ch01.html" title="Data Types">
 <link rel="next" href="json-glib-JSON-Array.html" title="JSON Array">
-<meta name="generator" content="GTK-Doc V1.20.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
 <td width="100%" align="left" class="shortcuts">
 <a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
-                  <a href="#json-glib-JSON-Node.description" class="shortcut">Description</a></span>
+                  <a href="#json-glib-JSON-Node.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#json-glib-JSON-Node.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
 <td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
@@ -33,7 +34,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="json-glib-JSON-Node.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -77,7 +78,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-alloc" title="json_node_alloc ()">json_node_alloc</a> <span class="c_punctuation">()</span>
@@ -85,7 +86,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-init" title="json_node_init ()">json_node_init</a> <span class="c_punctuation">()</span>
@@ -93,7 +94,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-init-int" title="json_node_init_int ()">json_node_init_int</a> <span class="c_punctuation">()</span>
@@ -101,7 +102,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-init-double" title="json_node_init_double ()">json_node_init_double</a> <span class="c_punctuation">()</span>
@@ -109,7 +110,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-init-boolean" title="json_node_init_boolean ()">json_node_init_boolean</a> <span class="c_punctuation">()</span>
@@ -117,7 +118,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-init-string" title="json_node_init_string ()">json_node_init_string</a> <span class="c_punctuation">()</span>
@@ -125,7 +126,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-init-null" title="json_node_init_null ()">json_node_init_null</a> <span class="c_punctuation">()</span>
@@ -133,7 +134,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-init-object" title="json_node_init_object ()">json_node_init_object</a> <span class="c_punctuation">()</span>
@@ -141,7 +142,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-init-array" title="json_node_init_array ()">json_node_init_array</a> <span class="c_punctuation">()</span>
@@ -149,7 +150,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-new" title="json_node_new ()">json_node_new</a> <span class="c_punctuation">()</span>
@@ -157,7 +158,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-copy" title="json_node_copy ()">json_node_copy</a> <span class="c_punctuation">()</span>
@@ -169,6 +170,54 @@
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-free" title="json_node_free ()">json_node_free</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="json-glib-JSON-Node.html#json-node-ref" title="json_node_ref ()">json_node_ref</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="json-glib-JSON-Node.html#json-node-unref" title="json_node_unref ()">json_node_unref</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="json-glib-JSON-Node.html#json-node-is-immutable" title="json_node_is_immutable ()">json_node_is_immutable</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="json-glib-JSON-Node.html#json-node-seal" title="json_node_seal ()">json_node_seal</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">guint</span>
+</td>
+<td class="function_name">
+<a class="link" href="json-glib-JSON-Node.html#json-node-hash" title="json_node_hash ()">json_node_hash</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="json-glib-JSON-Node.html#json-node-equal" title="json_node_equal ()">json_node_equal</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
 <tr>
@@ -189,7 +238,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *
+<a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="returnvalue">JsonArray</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-get-array" title="json_node_get_array ()">json_node_get_array</a> <span class="c_punctuation">()</span>
@@ -197,7 +246,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *
+<a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="returnvalue">JsonArray</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-dup-array" title="json_node_dup_array ()">json_node_dup_array</a> <span class="c_punctuation">()</span>
@@ -221,7 +270,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *
+<a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="returnvalue">JsonObject</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-get-object" title="json_node_get_object ()">json_node_get_object</a> <span class="c_punctuation">()</span>
@@ -229,7 +278,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *
+<a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="returnvalue">JsonObject</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-dup-object" title="json_node_dup_object ()">json_node_dup_object</a> <span class="c_punctuation">()</span>
@@ -332,7 +381,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="json-glib-JSON-Node.html#json-node-get-parent" title="json_node_get_parent ()">json_node_get_parent</a> <span class="c_punctuation">()</span>
@@ -369,12 +418,36 @@
 <a class="link" href="json-glib-JSON-Node.html#json-node-is-null" title="json_node_is_null ()">json_node_is_null</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">guint</span>
+</td>
+<td class="function_name">
+<a class="link" href="json-glib-JSON-Node.html#json-string-hash" title="json_string_hash ()">json_string_hash</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="json-glib-JSON-Node.html#json-string-equal" title="json_string_equal ()">json_string_equal</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="json-glib-JSON-Node.html#json-string-compare" title="json_string_compare ()">json_string_compare</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
 </tbody>
 </table></div>
 </div>
-<div class="refsect1">
+<a name="JsonNode"></a><div class="refsect1">
 <a name="json-glib-JSON-Node.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -386,14 +459,20 @@
 </tr>
 <tr>
 <td class="datatype_keyword"> </td>
-<td class="function_name"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode">JsonNode</a></td>
+<td class="function_name"><a class="link" href="json-glib-JSON-Node.html#JsonNode-struct" title="JsonNode">JsonNode</a></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect1">
+<a name="json-glib-JSON-Node.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="/home/ebassi/gnome/install/share/gtk-doc/html/gobject/gobject-Boxed-Types.html">GBoxed</a>
+    <span class="lineart">╰──</span> JsonNode
+</pre>
+</div>
+<div class="refsect1">
 <a name="json-glib-JSON-Node.description"></a><h2>Description</h2>
-<p>A <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> is a generic container of elements inside a JSON stream.
+<p>A <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> is a generic container of elements inside a JSON stream.
 It can contain fundamental types (integers, booleans, floating point
 numbers, strings) and complex types (arrays and objects).</p>
 <p>When parsing a JSON data stream you extract the root node and walk
@@ -402,9 +481,25 @@ node with the <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-TYPE:CAPS
 type you can retrieve a copy of the <span class="type">GValue</span> holding it with the
 <a class="link" href="json-glib-JSON-Node.html#json-node-get-value" title="json_node_get_value ()"><code class="function">json_node_get_value()</code></a> function, and then use the <span class="type">GValue</span> API to extract
 the data; if the node contains a complex type you can retrieve the
-<a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> or the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> using <a class="link" href="json-glib-JSON-Node.html#json-node-get-object" title="json_node_get_object ()"><code class="function">json_node_get_object()</code></a> or
+<a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a> or the <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> using <a class="link" href="json-glib-JSON-Node.html#json-node-get-object" title="json_node_get_object ()"><code class="function">json_node_get_object()</code></a> or
 <a class="link" href="json-glib-JSON-Node.html#json-node-get-array" title="json_node_get_array ()"><code class="function">json_node_get_array()</code></a> respectively, and then retrieve the nodes
 they contain.</p>
+<p>A <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> may be marked as immutable using <a class="link" href="json-glib-JSON-Node.html#json-node-seal" title="json_node_seal ()"><code class="function">json_node_seal()</code></a>. This marks the
+node and all its descendents as read-only, and means that subsequent calls to
+setter functions (such as <a class="link" href="json-glib-JSON-Node.html#json-node-set-array" title="json_node_set_array ()"><code class="function">json_node_set_array()</code></a>) on them will abort as a
+programmer error. By marking a node tree as immutable, it may be referenced
+in multiple places and its hash value cached for fast lookups, without the
+possibility of a value deep within the tree changing and affecting hash
+values. Immutable <a href="json-glib-JSON-Node.html#JsonNode-struct"><span class="type">JsonNodes</span></a> may be passed to functions which retain a
+reference to them without needing to take a copy.</p>
+<p><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> supports two types of memory management: alloc/free semantics, and
+ref/unref semantics. The two may be mixed to a limited extent: nodes may be
+allocated (which gives them a reference count of 1), referenced zero or more
+times, unreferenced exactly that number of times (using <a class="link" href="json-glib-JSON-Node.html#json-node-unref" title="json_node_unref ()"><code class="function">json_node_unref()</code></a>),
+then either unreferenced exactly once more or freed (using <a class="link" href="json-glib-JSON-Node.html#json-node-free" title="json_node_free ()"><code class="function">json_node_free()</code></a>)
+to destroy them. <a class="link" href="json-glib-JSON-Node.html#json-node-free" title="json_node_free ()"><code class="function">json_node_free()</code></a> must not be used when a node might have a
+reference count not equal to 1. To this end, json-glib uses <a class="link" href="json-glib-JSON-Node.html#json-node-copy" title="json_node_copy ()"><code class="function">json_node_copy()</code></a>
+and <a class="link" href="json-glib-JSON-Node.html#json-node-unref" title="json_node_unref ()"><code class="function">json_node_unref()</code></a> internally.</p>
 </div>
 <div class="refsect1">
 <a name="json-glib-JSON-Node.functions_details"></a><h2>Functions</h2>
@@ -415,8 +510,8 @@ they contain.</p>
 <p>Evaluates to the <a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="type">JsonNodeType</span></a> contained by <em class="parameter"><code>node</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="JSON-NODE-TYPE.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -424,7 +519,7 @@ they contain.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
@@ -439,8 +534,8 @@ they contain.</p>
  holds type <em class="parameter"><code>t</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="JSON-NODE-HOLDS.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -449,7 +544,7 @@ they contain.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -460,7 +555,7 @@ they contain.</p>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 0.10</p>
+<p class="since">Since: <a class="link" href="ix06.html#api-index-0.10">0.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -470,8 +565,8 @@ they contain.</p>
 <p>Evaluates to <code class="literal">TRUE</code> if <em class="parameter"><code>node</code></em>
  holds a <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.4.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="JSON-NODE-HOLDS-VALUE.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -479,12 +574,12 @@ they contain.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
-<p class="since">Since 0.10</p>
+<p class="since">Since: <a class="link" href="ix06.html#api-index-0.10">0.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -494,8 +589,8 @@ they contain.</p>
 <p>Evaluates to <code class="literal">TRUE</code> if <em class="parameter"><code>node</code></em>
  holds a <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-OBJECT:CAPS"><code class="literal">JSON_NODE_OBJECT</code></a></p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.5.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="JSON-NODE-HOLDS-OBJECT.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -503,12 +598,12 @@ they contain.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
-<p class="since">Since 0.10</p>
+<p class="since">Since: <a class="link" href="ix06.html#api-index-0.10">0.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -518,8 +613,8 @@ they contain.</p>
 <p>Evaluates to <code class="literal">TRUE</code> if <em class="parameter"><code>node</code></em>
  holds a <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-ARRAY:CAPS"><code class="literal">JSON_NODE_ARRAY</code></a></p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="JSON-NODE-HOLDS-ARRAY.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -527,12 +622,12 @@ they contain.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
-<p class="since">Since 0.10</p>
+<p class="since">Since: <a class="link" href="ix06.html#api-index-0.10">0.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -542,8 +637,8 @@ they contain.</p>
 <p>Evaluates to <code class="literal">TRUE</code> if <em class="parameter"><code>node</code></em>
  holds a <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-NULL:CAPS"><code class="literal">JSON_NODE_NULL</code></a></p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="JSON-NODE-HOLDS-NULL.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -551,33 +646,34 @@ they contain.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
-<p class="since">Since 0.10</p>
+<p class="since">Since: <a class="link" href="ix06.html#api-index-0.10">0.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-alloc"></a><h3>json_node_alloc ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 json_node_alloc (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<p>Allocates a new <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. Use <a class="link" href="json-glib-JSON-Node.html#json-node-init" title="json_node_init ()"><code class="function">json_node_init()</code></a> and its variants
+<p>Allocates a new <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. Use <a class="link" href="json-glib-JSON-Node.html#json-node-init" title="json_node_init ()"><code class="function">json_node_init()</code></a> and its variants
 to initialize the returned value.</p>
+<p><span class="annotation">[<acronym title="This symbol is a constructor, not a static method."><span class="acronym">constructor</span></acronym>]</span></p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.8.5"></a><h4>Returns</h4>
-<p> the newly allocated <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. Use
+<a name="json-node-alloc.returns"></a><h4>Returns</h4>
+<p> the newly allocated <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. Use
 <a class="link" href="json-glib-JSON-Node.html#json-node-free" title="json_node_free ()"><code class="function">json_node_free()</code></a> to free the resources allocated by this function. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.16</p>
+<p class="since">Since: <a class="link" href="ix09.html#api-index-0.16">0.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-init"></a><h3>json_node_init ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_init (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_init (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                 <em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="type">JsonNodeType</span></a> type</code></em>);</pre>
 <p>Initializes a <em class="parameter"><code>node</code></em>
  to a specific <em class="parameter"><code>type</code></em>
@@ -585,8 +681,8 @@ json_node_init (<em class="parameter"><code><a class="link" href="json-glib-JSON
 <p>If the node has already been initialized once, it will be reset to
 the given type, and any data contained will be cleared.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.9.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-init.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -595,7 +691,7 @@ the given type, and any data contained will be cleared.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
+<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -608,17 +704,17 @@ to</p></td>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.9.7"></a><h4>Returns</h4>
-<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-init.returns"></a><h4>Returns</h4>
+<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.16</p>
+<p class="since">Since: <a class="link" href="ix09.html#api-index-0.16">0.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-init-int"></a><h3>json_node_init_int ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_init_int (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_init_int (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                     <em class="parameter"><code><span class="type">gint64</span> value</code></em>);</pre>
 <p>Initializes <em class="parameter"><code>node</code></em>
  to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a> and sets <em class="parameter"><code>value</code></em>
@@ -626,8 +722,8 @@ json_node_init_int (<em class="parameter"><code><a class="link" href="json-glib-
 <p>If the node has already been initialized once, it will be reset to
 the given type, and any data contained will be cleared.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.10.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-init-int.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -636,7 +732,7 @@ the given type, and any data contained will be cleared.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
+<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -648,17 +744,17 @@ the given type, and any data contained will be cleared.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.10.7"></a><h4>Returns</h4>
-<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-init-int.returns"></a><h4>Returns</h4>
+<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.16</p>
+<p class="since">Since: <a class="link" href="ix09.html#api-index-0.16">0.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-init-double"></a><h3>json_node_init_double ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_init_double (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_init_double (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                        <em class="parameter"><code><span class="type">gdouble</span> value</code></em>);</pre>
 <p>Initializes <em class="parameter"><code>node</code></em>
  to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a> and sets <em class="parameter"><code>value</code></em>
@@ -666,8 +762,8 @@ json_node_init_double (<em class="parameter"><code><a class="link" href="json-gl
 <p>If the node has already been initialized once, it will be reset to
 the given type, and any data contained will be cleared.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.11.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-init-double.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -676,7 +772,7 @@ the given type, and any data contained will be cleared.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
+<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -688,17 +784,17 @@ the given type, and any data contained will be cleared.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.11.7"></a><h4>Returns</h4>
-<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-init-double.returns"></a><h4>Returns</h4>
+<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.16</p>
+<p class="since">Since: <a class="link" href="ix09.html#api-index-0.16">0.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-init-boolean"></a><h3>json_node_init_boolean ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_init_boolean (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_init_boolean (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);</pre>
 <p>Initializes <em class="parameter"><code>node</code></em>
  to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a> and sets <em class="parameter"><code>value</code></em>
@@ -706,8 +802,8 @@ json_node_init_boolean (<em class="parameter"><code><a class="link" href="json-g
 <p>If the node has already been initialized once, it will be reset to
 the given type, and any data contained will be cleared.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.12.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-init-boolean.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -716,7 +812,7 @@ the given type, and any data contained will be cleared.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
+<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -728,17 +824,17 @@ the given type, and any data contained will be cleared.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.12.7"></a><h4>Returns</h4>
-<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-init-boolean.returns"></a><h4>Returns</h4>
+<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.16</p>
+<p class="since">Since: <a class="link" href="ix09.html#api-index-0.16">0.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-init-string"></a><h3>json_node_init_string ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_init_string (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_init_string (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                        <em class="parameter"><code>const <span class="type">char</span> *value</code></em>);</pre>
 <p>Initializes <em class="parameter"><code>node</code></em>
  to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a> and sets <em class="parameter"><code>value</code></em>
@@ -746,8 +842,8 @@ json_node_init_string (<em class="parameter"><code><a class="link" href="json-gl
 <p>If the node has already been initialized once, it will be reset to
 the given type, and any data contained will be cleared.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.13.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-init-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -756,36 +852,36 @@ the given type, and any data contained will be cleared.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
+<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
 <td class="parameter_description"><p> a string value. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.13.7"></a><h4>Returns</h4>
-<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-init-string.returns"></a><h4>Returns</h4>
+<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.16</p>
+<p class="since">Since: <a class="link" href="ix09.html#api-index-0.16">0.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-init-null"></a><h3>json_node_init_null ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_init_null (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_init_null (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>Initializes <em class="parameter"><code>node</code></em>
  to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-NULL:CAPS"><code class="literal">JSON_NODE_NULL</code></a>.</p>
 <p>If the node has already been initialized once, it will be reset to
 the given type, and any data contained will be cleared.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.14.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-init-null.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -793,24 +889,24 @@ the given type, and any data contained will be cleared.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
+<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.14.7"></a><h4>Returns</h4>
-<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-init-null.returns"></a><h4>Returns</h4>
+<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.16</p>
+<p class="since">Since: <a class="link" href="ix09.html#api-index-0.16">0.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-init-object"></a><h3>json_node_init_object ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_init_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
-                       <em class="parameter"><code><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> *object</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_init_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+                       <em class="parameter"><code><a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a> *object</code></em>);</pre>
 <p>Initializes <em class="parameter"><code>node</code></em>
  to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-OBJECT:CAPS"><code class="literal">JSON_NODE_OBJECT</code></a> and sets <em class="parameter"><code>object</code></em>
  into it.</p>
@@ -819,8 +915,8 @@ json_node_init_object (<em class="parameter"><code><a class="link" href="json-gl
 <p>If the node has already been initialized once, it will be reset to
 the given type, and any data contained will be cleared.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.15.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-init-object.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -829,31 +925,31 @@ the given type, and any data contained will be cleared.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
+<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>object</p></td>
-<td class="parameter_description"><p> the <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> to initialize <em class="parameter"><code>node</code></em>
+<td class="parameter_description"><p> the <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a> to initialize <em class="parameter"><code>node</code></em>
 with, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.15.8"></a><h4>Returns</h4>
-<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-init-object.returns"></a><h4>Returns</h4>
+<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.16</p>
+<p class="since">Since: <a class="link" href="ix09.html#api-index-0.16">0.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-init-array"></a><h3>json_node_init_array ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_init_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
-                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_init_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
 <p>Initializes <em class="parameter"><code>node</code></em>
  to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-ARRAY:CAPS"><code class="literal">JSON_NODE_ARRAY</code></a> and sets <em class="parameter"><code>array</code></em>
  into it.</p>
@@ -862,8 +958,8 @@ json_node_init_array (<em class="parameter"><code><a class="link" href="json-gli
 <p>If the node has already been initialized once, it will be reset to
 the given type, and any data contained will be cleared.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.16.7"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-init-array.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -872,31 +968,31 @@ the given type, and any data contained will be cleared.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
+<td class="parameter_description"><p>the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> to initialize</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>array</p></td>
-<td class="parameter_description"><p> the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> to initialize <em class="parameter"><code>node</code></em>
+<td class="parameter_description"><p> the <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> to initialize <em class="parameter"><code>node</code></em>
 with, or <code class="literal">NULL</code>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.16.8"></a><h4>Returns</h4>
-<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-init-array.returns"></a><h4>Returns</h4>
+<p> the initialized <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
-<p class="since">Since 0.16</p>
+<p class="since">Since: <a class="link" href="ix09.html#api-index-0.16">0.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-new"></a><h3>json_node_new ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
 json_node_new (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="type">JsonNodeType</span></a> type</code></em>);</pre>
-<p>Creates a new <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>type</code></em>
+<p>Creates a new <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>type</code></em>
 .</p>
 <p>This is a convenience function for <a class="link" href="json-glib-JSON-Node.html#json-node-alloc" title="json_node_alloc ()"><code class="function">json_node_alloc()</code></a> and <a class="link" href="json-glib-JSON-Node.html#json-node-init" title="json_node_init ()"><code class="function">json_node_init()</code></a>,
 and it's the equivalent of:</p>
@@ -912,9 +1008,10 @@ and it's the equivalent of:</p>
 </div>
 
 <p></p>
+<p><span class="annotation">[<acronym title="This symbol is a constructor, not a static method."><span class="acronym">constructor</span></acronym>]</span></p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.17.8"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -928,22 +1025,26 @@ and it's the equivalent of:</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.17.9"></a><h4>Returns</h4>
-<p> the newly created <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-new.returns"></a><h4>Returns</h4>
+<p> the newly created <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-copy"></a><h3>json_node_copy ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_copy (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_copy (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>Copies <em class="parameter"><code>node</code></em>
-. If the node contains complex data types then the reference
-count of the objects is increased.</p>
+. If the node contains complex data types, their reference
+counts are increased, regardless of whether the node is mutable or
+immutable.</p>
+<p>The copy will be immutable if, and only if, <em class="parameter"><code>node</code></em>
+ is immutable. However,
+there should be no need to copy an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.18.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-copy.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -951,14 +1052,14 @@ count of the objects is increased.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.18.6"></a><h4>Returns</h4>
-<p> the copied <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>. </p>
+<a name="json-node-copy.returns"></a><h4>Returns</h4>
+<p> the copied <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -966,12 +1067,12 @@ count of the objects is increased.</p>
 <div class="refsect2">
 <a name="json-node-free"></a><h3>json_node_free ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_free (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+json_node_free (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>Frees the resources allocated by <em class="parameter"><code>node</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.19.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-free.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -979,7 +1080,7 @@ json_node_free (<em class="parameter"><code><a class="link" href="json-glib-JSON
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
@@ -987,16 +1088,206 @@ json_node_free (<em class="parameter"><code><a class="link" href="json-glib-JSON
 </div>
 <hr>
 <div class="refsect2">
+<a name="json-node-ref"></a><h3>json_node_ref ()</h3>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_ref (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Increment the reference count of <em class="parameter"><code>node</code></em>
+.</p>
+<div class="refsect3">
+<a name="json-node-ref.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>node</p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="json-node-ref.returns"></a><h4>Returns</h4>
+<p> a pointer to <em class="parameter"><code>node</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="ix11.html#api-index-1.2">1.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-node-unref"></a><h3>json_node_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+json_node_unref (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Decrement the reference count of <em class="parameter"><code>node</code></em>
+. If it reaches zero, the node is
+freed.</p>
+<div class="refsect3">
+<a name="json-node-unref.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>node</p></td>
+<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix11.html#api-index-1.2">1.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-node-is-immutable"></a><h3>json_node_is_immutable ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+json_node_is_immutable (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Check whether the given <em class="parameter"><code>node</code></em>
+ has been marked as immutable by calling
+<a class="link" href="json-glib-JSON-Node.html#json-node-seal" title="json_node_seal ()"><code class="function">json_node_seal()</code></a> on it.</p>
+<div class="refsect3">
+<a name="json-node-is-immutable.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>node</p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="json-node-is-immutable.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the <em class="parameter"><code>node</code></em>
+is immutable</p>
+</div>
+<p class="since">Since: <a class="link" href="ix11.html#api-index-1.2">1.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-node-seal"></a><h3>json_node_seal ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+json_node_seal (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Seals the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>, making it immutable to further changes. In order to be
+sealed, the <em class="parameter"><code>node</code></em>
+ must have a type and value set. The value will be
+recursively sealed — if the node holds an object, that <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a> will be
+sealed, etc.</p>
+<p>If the <em class="parameter"><code>node</code></em>
+ is already immutable, this is a no-op.</p>
+<div class="refsect3">
+<a name="json-node-seal.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>node</p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix11.html#api-index-1.2">1.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-node-hash"></a><h3>json_node_hash ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+json_node_hash (<em class="parameter"><code><span class="type">gconstpointer</span> key</code></em>);</pre>
+<p>Calculate a hash value for the given <em class="parameter"><code>key</code></em>
+ (a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>).</p>
+<p>The hash is calculated over the node and its value, recursively. If the node
+is immutable, this is a fast operation; otherwise, it scales proportionally
+with the size of the node’s value (for example, with the number of members
+in the <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a> if this node contains an object).</p>
+<div class="refsect3">
+<a name="json-node-hash.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p> a JSON node to hash. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> JsonNode]</span></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="json-node-hash.returns"></a><h4>Returns</h4>
+<p> hash value for <em class="parameter"><code>key</code></em>
+</p>
+</div>
+<p class="since">Since: <a class="link" href="ix11.html#api-index-1.2">1.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-node-equal"></a><h3>json_node_equal ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+json_node_equal (<em class="parameter"><code><span class="type">gconstpointer</span> a</code></em>,
+                 <em class="parameter"><code><span class="type">gconstpointer</span> b</code></em>);</pre>
+<p>Check whether <em class="parameter"><code>a</code></em>
+ and <em class="parameter"><code>b</code></em>
+ are equal <a href="json-glib-JSON-Node.html#JsonNode-struct"><span class="type">JsonNodes</span></a>, meaning they have the same
+type and same values (checked recursively). Note that integer values are
+compared numerically, ignoring type, so a double value 4.0 is equal to the
+integer value 4.</p>
+<div class="refsect3">
+<a name="json-node-equal.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>a</p></td>
+<td class="parameter_description"><p> a JSON node. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> JsonNode]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>b</p></td>
+<td class="parameter_description"><p> another JSON node. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> JsonNode]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="json-node-equal.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if <em class="parameter"><code>a</code></em>
+and <em class="parameter"><code>b</code></em>
+are equal; <code class="literal">FALSE</code> otherwise</p>
+</div>
+<p class="since">Since: <a class="link" href="ix11.html#api-index-1.2">1.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="json-node-set-array"></a><h3>json_node_set_array ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_set_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
-                     <em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
+json_node_set_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+                     <em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
 <p>Sets <em class="parameter"><code>array</code></em>
  inside <em class="parameter"><code>node</code></em>
- and increases the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> reference count</p>
+ and increases the <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> reference count.</p>
+<p>It is an error to call this on an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.20.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-set-array.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1005,12 +1296,12 @@ json_node_set_array (<em class="parameter"><code><a class="link" href="json-glib
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-ARRAY:CAPS"><code class="literal">JSON_NODE_ARRAY</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-ARRAY:CAPS"><code class="literal">JSON_NODE_ARRAY</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>array</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -1021,14 +1312,15 @@ json_node_set_array (<em class="parameter"><code><a class="link" href="json-glib
 <div class="refsect2">
 <a name="json-node-take-array"></a><h3>json_node_take_array ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_take_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
-                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
+json_node_take_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
 <p>Sets <em class="parameter"><code>array</code></em>
  into <em class="parameter"><code>node</code></em>
- without increasing the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> reference count.</p>
+ without increasing the <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> reference count.</p>
+<p>It is an error to call this on an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.21.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-take-array.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1037,12 +1329,12 @@ json_node_take_array (<em class="parameter"><code><a class="link" href="json-gli
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-ARRAY:CAPS"><code class="literal">JSON_NODE_ARRAY</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-ARRAY:CAPS"><code class="literal">JSON_NODE_ARRAY</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>array</p></td>
-<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a>. </p></td>
+<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1052,12 +1344,13 @@ json_node_take_array (<em class="parameter"><code><a class="link" href="json-gli
 <hr>
 <div class="refsect2">
 <a name="json-node-get-array"></a><h3>json_node_get_array ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *
-json_node_get_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Retrieves the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="returnvalue">JsonArray</span></a> *
+json_node_get_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Retrieves the <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. If the node does not
+hold an array value, <code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.22.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-array.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1065,27 +1358,28 @@ json_node_get_array (<em class="parameter"><code><a class="link" href="json-glib
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.22.6"></a><h4>Returns</h4>
-<p> the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a>. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+<a name="json-node-get-array.returns"></a><h4>Returns</h4>
+<p> the <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a>. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-dup-array"></a><h3>json_node_dup_array ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *
-json_node_dup_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Retrieves the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> and returns it
-with its reference count increased by one.</p>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="returnvalue">JsonArray</span></a> *
+json_node_dup_array (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Retrieves the <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> and returns it
+with its reference count increased by one. If the node does not hold an
+array value, <code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.23.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-dup-array.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1093,31 +1387,34 @@ with its reference count increased by one.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.23.6"></a><h4>Returns</h4>
-<p> the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> with its reference
+<a name="json-node-dup-array.returns"></a><h4>Returns</h4>
+<p> the <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a> with its reference
 count increased. </p>
-<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-set-object"></a><h3>json_node_set_object ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_set_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
-                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> *object</code></em>);</pre>
+json_node_set_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a> *object</code></em>);</pre>
 <p>Sets <em class="parameter"><code>objects</code></em>
  inside <em class="parameter"><code>node</code></em>
 . The reference count of <em class="parameter"><code>object</code></em>
  is increased.</p>
+<p>If <em class="parameter"><code>object</code></em>
+ is <code class="literal">NULL</code>, the node’s existing object is cleared.</p>
+<p>It is an error to call this on an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.24.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-set-object.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1126,13 +1423,13 @@ json_node_set_object (<em class="parameter"><code><a class="link" href="json-gli
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-OBJECT:CAPS"><code class="literal">JSON_NODE_OBJECT</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-OBJECT:CAPS"><code class="literal">JSON_NODE_OBJECT</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>object</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a></p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1142,15 +1439,16 @@ json_node_set_object (<em class="parameter"><code><a class="link" href="json-gli
 <div class="refsect2">
 <a name="json-node-take-object"></a><h3>json_node_take_object ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_take_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
-                       <em class="parameter"><code><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> *object</code></em>);</pre>
+json_node_take_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+                       <em class="parameter"><code><a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a> *object</code></em>);</pre>
 <p>Sets <em class="parameter"><code>object</code></em>
  inside <em class="parameter"><code>node</code></em>
 . The reference count of <em class="parameter"><code>object</code></em>
  is not increased.</p>
+<p>It is an error to call this on an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.25.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-take-object.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1159,12 +1457,12 @@ json_node_take_object (<em class="parameter"><code><a class="link" href="json-gl
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-OBJECT:CAPS"><code class="literal">JSON_NODE_OBJECT</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-OBJECT:CAPS"><code class="literal">JSON_NODE_OBJECT</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>object</p></td>
-<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a>. </p></td>
+<td class="parameter_description"><p> a <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1174,12 +1472,13 @@ json_node_take_object (<em class="parameter"><code><a class="link" href="json-gl
 <hr>
 <div class="refsect2">
 <a name="json-node-get-object"></a><h3>json_node_get_object ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *
-json_node_get_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Retrieves the <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="returnvalue">JsonObject</span></a> *
+json_node_get_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Retrieves the <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a> stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. If the node does not
+hold an object value, <code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.26.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-object.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1187,28 +1486,29 @@ json_node_get_object (<em class="parameter"><code><a class="link" href="json-gli
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.26.6"></a><h4>Returns</h4>
-<p> the <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a>. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+<a name="json-node-get-object.returns"></a><h4>Returns</h4>
+<p> the <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a>. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-dup-object"></a><h3>json_node_dup_object ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *
-json_node_dup_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Retrieves the <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> inside <em class="parameter"><code>node</code></em>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="returnvalue">JsonObject</span></a> *
+json_node_dup_object (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Retrieves the <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a> inside <em class="parameter"><code>node</code></em>
 . The reference count of
-the returned object is increased.</p>
+the returned object is increased. If the node does not hold an object value,
+<code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.27.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-dup-object.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1216,29 +1516,30 @@ the returned object is increased.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.27.6"></a><h4>Returns</h4>
-<p> the <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a>. </p>
-<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+<a name="json-node-dup-object.returns"></a><h4>Returns</h4>
+<p> the <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-set-value"></a><h3>json_node_set_value ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_set_value (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+json_node_set_value (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                      <em class="parameter"><code>const <span class="type">GValue</span> *value</code></em>);</pre>
 <p>Sets <em class="parameter"><code>value</code></em>
  inside <em class="parameter"><code>node</code></em>
-. The passed <span class="type">GValue</span> is copied into the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p>
+. The passed <span class="type">GValue</span> is copied into the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>.</p>
+<p>It is an error to call this on an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.28.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-set-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1247,7 +1548,7 @@ json_node_set_value (<em class="parameter"><code><a class="link" href="json-glib
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1263,14 +1564,16 @@ json_node_set_value (<em class="parameter"><code><a class="link" href="json-glib
 <div class="refsect2">
 <a name="json-node-get-value"></a><h3>json_node_get_value ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_get_value (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+json_node_get_value (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                      <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);</pre>
-<p>Retrieves a value from a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> and copies into <em class="parameter"><code>value</code></em>
+<p>Retrieves a value from a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> and copies into <em class="parameter"><code>value</code></em>
 . When done
-using it, call <code class="function">g_value_unset()</code> on the <span class="type">GValue</span>.</p>
+using it, call <code class="function">g_value_unset()</code> on the <span class="type">GValue</span>. If the node does not hold a
+scalar value, <em class="parameter"><code>value</code></em>
+ is not modified.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.29.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1279,7 +1582,7 @@ using it, call <code class="function">g_value_unset()</code> on the <span class=
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1295,15 +1598,16 @@ using it, call <code class="function">g_value_unset()</code> on the <span class=
 <div class="refsect2">
 <a name="json-node-set-boolean"></a><h3>json_node_set_boolean ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_set_boolean (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+json_node_set_boolean (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                        <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);</pre>
 <p>Sets <em class="parameter"><code>value</code></em>
  as the boolean content of the <em class="parameter"><code>node</code></em>
 , replacing any existing
 content.</p>
+<p>It is an error to call this on an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.30.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-set-boolean.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1312,7 +1616,7 @@ content.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1328,11 +1632,14 @@ content.</p>
 <div class="refsect2">
 <a name="json-node-get-boolean"></a><h3>json_node_get_boolean ()</h3>
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
-json_node_get_boolean (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Gets the boolean value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p>
+json_node_get_boolean (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Gets the boolean value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. If the node holds an
+integer or double value which is zero, <code class="literal">FALSE</code> is returned; otherwise <code class="literal">TRUE</code>
+is returned. If the node holds a <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-NULL:CAPS"><code class="literal">JSON_NODE_NULL</code></a> value or a value of another
+non-boolean type, <code class="literal">FALSE</code> is returned.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.31.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-boolean.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1340,30 +1647,30 @@ json_node_get_boolean (<em class="parameter"><code><a class="link" href="json-gl
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.31.6"></a><h4>Returns</h4>
+<a name="json-node-get-boolean.returns"></a><h4>Returns</h4>
 <p> a boolean value.</p>
-<p></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-set-double"></a><h3>json_node_set_double ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_set_double (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+json_node_set_double (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                       <em class="parameter"><code><span class="type">gdouble</span> value</code></em>);</pre>
 <p>Sets <em class="parameter"><code>value</code></em>
  as the double content of the <em class="parameter"><code>node</code></em>
 , replacing any existing
 content.</p>
+<p>It is an error to call this on an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.32.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-set-double.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1372,7 +1679,7 @@ content.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1388,11 +1695,15 @@ content.</p>
 <div class="refsect2">
 <a name="json-node-get-double"></a><h3>json_node_get_double ()</h3>
 <pre class="programlisting"><span class="returnvalue">gdouble</span>
-json_node_get_double (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Gets the double value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p>
+json_node_get_double (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Gets the double value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. If the node holds an integer
+value, it is returned as a double. If the node holds a <code class="literal">FALSE</code> boolean value,
+<code class="literal">0.0</code> is returned; otherwise a non-zero double is returned. If the node holds
+a <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-NULL:CAPS"><code class="literal">JSON_NODE_NULL</code></a> value or a value of another non-double type, <code class="literal">0.0</code> is
+returned.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.33.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-double.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1400,30 +1711,30 @@ json_node_get_double (<em class="parameter"><code><a class="link" href="json-gli
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.33.6"></a><h4>Returns</h4>
+<a name="json-node-get-double.returns"></a><h4>Returns</h4>
 <p> a double value.</p>
-<p></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-set-int"></a><h3>json_node_set_int ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_set_int (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+json_node_set_int (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                    <em class="parameter"><code><span class="type">gint64</span> value</code></em>);</pre>
 <p>Sets <em class="parameter"><code>value</code></em>
  as the integer content of the <em class="parameter"><code>node</code></em>
 , replacing any existing
 content.</p>
+<p>It is an error to call this on an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.34.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-set-int.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1432,7 +1743,7 @@ content.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1448,11 +1759,15 @@ content.</p>
 <div class="refsect2">
 <a name="json-node-get-int"></a><h3>json_node_get_int ()</h3>
 <pre class="programlisting"><span class="returnvalue">gint64</span>
-json_node_get_int (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Gets the integer value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p>
+json_node_get_int (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Gets the integer value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. If the node holds a double
+value, its integer component is returned. If the node holds a <code class="literal">FALSE</code> boolean
+value, <code class="literal">0</code> is returned; otherwise a non-zero integer is returned. If the
+node holds a <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-NULL:CAPS"><code class="literal">JSON_NODE_NULL</code></a> value or a value of another non-integer type,
+<code class="literal">0</code> is returned.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.35.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-int.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1460,30 +1775,30 @@ json_node_get_int (<em class="parameter"><code><a class="link" href="json-glib-J
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.35.6"></a><h4>Returns</h4>
+<a name="json-node-get-int.returns"></a><h4>Returns</h4>
 <p> an integer value.</p>
-<p></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-set-string"></a><h3>json_node_set_string ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_set_string (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+json_node_set_string (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                       <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);</pre>
 <p>Sets <em class="parameter"><code>value</code></em>
  as the string content of the <em class="parameter"><code>node</code></em>
 , replacing any existing
 content.</p>
+<p>It is an error to call this on an immutable node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.36.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-set-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1492,7 +1807,7 @@ content.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> initialized to <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1508,11 +1823,12 @@ content.</p>
 <div class="refsect2">
 <a name="json-node-get-string"></a><h3>json_node_get_string ()</h3>
 <pre class="programlisting">const <span class="returnvalue">gchar</span> *
-json_node_get_string (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Gets the string value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p>
+json_node_get_string (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Gets the string value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. If the node does not hold a
+string value, <code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.37.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1520,26 +1836,27 @@ json_node_get_string (<em class="parameter"><code><a class="link" href="json-gli
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.37.6"></a><h4>Returns</h4>
-<p> a string value.</p>
-<p></p>
+<a name="json-node-get-string.returns"></a><h4>Returns</h4>
+<p> a string value. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-dup-string"></a><h3>json_node_dup_string ()</h3>
 <pre class="programlisting"><span class="returnvalue">gchar</span> *
-json_node_dup_string (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Gets a copy of the string value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p>
+json_node_dup_string (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Gets a copy of the string value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>. If the node does
+not hold a string value, <code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.38.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-dup-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1547,29 +1864,34 @@ json_node_dup_string (<em class="parameter"><code><a class="link" href="json-gli
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of type <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-VALUE:CAPS"><code class="literal">JSON_NODE_VALUE</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.38.6"></a><h4>Returns</h4>
-<p> a newly allocated string containing a copy
-of the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> contents. Use <code class="function">g_free()</code> to free the allocated resources. </p>
-<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+<a name="json-node-dup-string.returns"></a><h4>Returns</h4>
+<p> a newly allocated string
+containing a copy of the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> contents. Use <code class="function">g_free()</code> to free the
+allocated resources. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-set-parent"></a><h3>json_node_set_parent ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-json_node_set_parent (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
-                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *parent</code></em>);</pre>
-<p>Sets the parent <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>node</code></em>
-</p>
+json_node_set_parent (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
+                      <em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *parent</code></em>);</pre>
+<p>Sets the parent <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>node</code></em>
+.</p>
+<p>It is an error to call this with an immutable <em class="parameter"><code>parent</code></em>
+. <em class="parameter"><code>node</code></em>
+ may be
+immutable.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.39.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-set-parent.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1578,30 +1900,30 @@ json_node_set_parent (<em class="parameter"><code><a class="link" href="json-gli
 <tbody>
 <tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> the parent <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>node</code></em>
+<td class="parameter_description"><p> the parent <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>node</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<p class="since">Since 0.8</p>
+<p class="since">Since: <a class="link" href="ix05.html#api-index-0.8">0.8</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-get-parent"></a><h3>json_node_get_parent ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *
-json_node_get_parent (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
-<p>Retrieves the parent <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>node</code></em>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="returnvalue">JsonNode</span></a> *
+json_node_get_parent (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<p>Retrieves the parent <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>node</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.40.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-parent.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1609,29 +1931,28 @@ json_node_get_parent (<em class="parameter"><code><a class="link" href="json-gli
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.40.6"></a><h4>Returns</h4>
+<a name="json-node-get-parent.returns"></a><h4>Returns</h4>
 <p> the parent node, or <code class="literal">NULL</code> if <em class="parameter"><code>node</code></em>
-is
-the root node. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+is the root node. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-type-name"></a><h3>json_node_type_name ()</h3>
 <pre class="programlisting">const <span class="returnvalue">gchar</span> *
-json_node_type_name (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+json_node_type_name (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>Retrieves the user readable name of the data type contained by <em class="parameter"><code>node</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.41.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-type-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1639,27 +1960,26 @@ json_node_type_name (<em class="parameter"><code><a class="link" href="json-glib
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.41.6"></a><h4>Returns</h4>
+<a name="json-node-type-name.returns"></a><h4>Returns</h4>
 <p> a string containing the name of the type. The returned string
 is owned by the node and should never be modified or freed</p>
-<p></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-get-value-type"></a><h3>json_node_get_value_type ()</h3>
 <pre class="programlisting"><span class="returnvalue">GType</span>
-json_node_get_value_type (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+json_node_get_value_type (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>Returns the <span class="type">GType</span> of the payload of the node.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.42.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-value-type.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1667,28 +1987,27 @@ json_node_get_value_type (<em class="parameter"><code><a class="link" href="json
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.42.6"></a><h4>Returns</h4>
+<a name="json-node-get-value-type.returns"></a><h4>Returns</h4>
 <p> a <span class="type">GType</span> for the payload.</p>
-<p></p>
 </div>
-<p class="since">Since 0.4</p>
+<p class="since">Since: <a class="link" href="ix03.html#api-index-0.4">0.4</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-get-node-type"></a><h3>json_node_get_node_type ()</h3>
 <pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="returnvalue">JsonNodeType</span></a>
-json_node_get_node_type (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+json_node_get_node_type (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>Retrieves the <a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="type">JsonNodeType</span></a> of <em class="parameter"><code>node</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.43.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-get-node-type.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1696,30 +2015,29 @@ json_node_get_node_type (<em class="parameter"><code><a class="link" href="json-
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.43.6"></a><h4>Returns</h4>
+<a name="json-node-get-node-type.returns"></a><h4>Returns</h4>
 <p> the type of the node</p>
-<p></p>
 </div>
-<p class="since">Since 0.8</p>
+<p class="since">Since: <a class="link" href="ix05.html#api-index-0.8">0.8</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="json-node-is-null"></a><h3>json_node_is_null ()</h3>
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
-json_node_is_null (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+json_node_is_null (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>Checks whether <em class="parameter"><code>node</code></em>
  is a <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-NULL:CAPS"><code class="literal">JSON_NODE_NULL</code></a>.</p>
-<p>A <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-NULL:CAPS"><code class="literal">JSON_NODE_NULL</code></a> node is not the same as a <code class="literal">NULL</code> <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>; a
+<p>A <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-NULL:CAPS"><code class="literal">JSON_NODE_NULL</code></a> node is not the same as a <code class="literal">NULL</code> <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>; a
 <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-NULL:CAPS"><code class="literal">JSON_NODE_NULL</code></a> represents a 'null' value in the JSON tree.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.44.6"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="json-node-is-null.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -1727,27 +2045,142 @@ json_node_is_null (<em class="parameter"><code><a class="link" href="json-glib-J
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>node</p></td>
-<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a></p></td>
+<td class="parameter_description"><p>a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.3.3.2.6.44.7"></a><h4>Returns</h4>
+<a name="json-node-is-null.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> if the node is null</p>
-<p></p>
 </div>
-<p class="since">Since 0.8</p>
+<p class="since">Since: <a class="link" href="ix05.html#api-index-0.8">0.8</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-string-hash"></a><h3>json_string_hash ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+json_string_hash (<em class="parameter"><code><span class="type">gconstpointer</span> key</code></em>);</pre>
+<p>Calculate a hash value for the given <em class="parameter"><code>key</code></em>
+ (a UTF-8 JSON string).</p>
+<p>Note: Member names are compared byte-wise, without applying any Unicode
+decomposition or normalisation. This is not explicitly mentioned in the JSON
+standard (ECMA-404), but is assumed.</p>
+<div class="refsect3">
+<a name="json-string-hash.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p> a JSON string to hash. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> utf8]</span></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="json-string-hash.returns"></a><h4>Returns</h4>
+<p> hash value for <em class="parameter"><code>key</code></em>
+</p>
+</div>
+<p class="since">Since: <a class="link" href="ix11.html#api-index-1.2">1.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-string-equal"></a><h3>json_string_equal ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+json_string_equal (<em class="parameter"><code><span class="type">gconstpointer</span> a</code></em>,
+                   <em class="parameter"><code><span class="type">gconstpointer</span> b</code></em>);</pre>
+<p>Check whether <em class="parameter"><code>a</code></em>
+ and <em class="parameter"><code>b</code></em>
+ are equal UTF-8 JSON strings.</p>
+<div class="refsect3">
+<a name="json-string-equal.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>a</p></td>
+<td class="parameter_description"><p> a JSON string. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> utf8]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>b</p></td>
+<td class="parameter_description"><p> another JSON string. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> utf8]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="json-string-equal.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if <em class="parameter"><code>a</code></em>
+and <em class="parameter"><code>b</code></em>
+are equal; <code class="literal">FALSE</code> otherwise</p>
+</div>
+<p class="since">Since: <a class="link" href="ix11.html#api-index-1.2">1.2</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-string-compare"></a><h3>json_string_compare ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+json_string_compare (<em class="parameter"><code><span class="type">gconstpointer</span> a</code></em>,
+                     <em class="parameter"><code><span class="type">gconstpointer</span> b</code></em>);</pre>
+<p>Check whether <em class="parameter"><code>a</code></em>
+ and <em class="parameter"><code>b</code></em>
+ are equal UTF-8 JSON strings and return an ordering
+over them in <code class="function">strcmp()</code> style.</p>
+<div class="refsect3">
+<a name="json-string-compare.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>a</p></td>
+<td class="parameter_description"><p> a JSON string. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> utf8]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>b</p></td>
+<td class="parameter_description"><p> another JSON string. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> utf8]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="json-string-compare.returns"></a><h4>Returns</h4>
+<p> an integer less than zero if <em class="parameter"><code>a</code></em>
+&lt; <em class="parameter"><code>b</code></em>
+, equal to zero if <em class="parameter"><code>a</code></em>
+== <em class="parameter"><code>b</code></em>
+, and
+greater than zero if <em class="parameter"><code>a</code></em>
+&gt; <em class="parameter"><code>b</code></em>
+</p>
+</div>
+<p class="since">Since: <a class="link" href="ix11.html#api-index-1.2">1.2</a></p>
 </div>
 </div>
 <div class="refsect1">
 <a name="json-glib-JSON-Node.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
 <a name="JsonNodeType"></a><h3>enum JsonNodeType</h3>
-<p>Indicates the content of a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>.</p>
+<p>Indicates the content of a <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>.</p>
 <div class="refsect3">
-<a name="id-1.3.3.2.7.2.4"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="JsonNodeType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -1757,14 +2190,14 @@ json_node_is_null (<em class="parameter"><code><a class="link" href="json-glib-J
 <tr>
 <td class="enum_member_name"><p><a name="JSON-NODE-OBJECT:CAPS"></a>JSON_NODE_OBJECT</p></td>
 <td class="enum_member_description">
-<p>The node contains a <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a></p>
+<p>The node contains a <a class="link" href="json-glib-JSON-Object.html#JsonObject"><span class="type">JsonObject</span></a></p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="JSON-NODE-ARRAY:CAPS"></a>JSON_NODE_ARRAY</p></td>
 <td class="enum_member_description">
-<p>The node contains a <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a></p>
+<p>The node contains a <a class="link" href="json-glib-JSON-Array.html#JsonArray"><span class="type">JsonArray</span></a></p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -1788,16 +2221,15 @@ json_node_is_null (<em class="parameter"><code><a class="link" href="json-glib-J
 </div>
 <hr>
 <div class="refsect2">
-<a name="JsonNode"></a><h3>JsonNode</h3>
+<a name="JsonNode-struct"></a><h3>JsonNode</h3>
 <pre class="programlisting">typedef struct _JsonNode JsonNode;</pre>
-<p>A generic container of JSON data types. The contents of the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>
+<p>A generic container of JSON data types. The contents of the <a class="link" href="json-glib-JSON-Node.html#JsonNode"><span class="type">JsonNode</span></a>
 structure are private and should only be accessed via the provided
 functions and never directly.</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.20.1</div>
+<hr>Generated by GTK-Doc V1.25.1</div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 /* json-generator.c - JSON streams generator
- * 
+ *
  * This file is part of JSON-GLib
  * Copyright (C) 2007  OpenedHand Ltd.
  * Copyright (C) 2009  Intel Corp.
@@ -36,7 +36,6 @@
 
 #include "json-types-private.h"
 
-#include "json-marshal.h"
 #include "json-generator.h"
 
 struct _JsonGeneratorPrivate
@@ -140,7 +139,7 @@ json_generator_finalize (GObject *gobject)
 
   priv = json_generator_get_instance_private ((JsonGenerator *) gobject);
   if (priv->root != NULL)
-    json_node_free (priv->root);
+    json_node_unref (priv->root);
 
   G_OBJECT_CLASS (json_generator_parent_class)->finalize (gobject);
 }
@@ -343,6 +342,11 @@ dump_value (JsonGenerator *generator,
         g_string_append (buffer,
                          g_ascii_dtostr (buf, sizeof (buf),
                                          json_value_get_double (value)));
+	/* ensure doubles don't become ints */
+	if (g_strstr_len (buf, G_ASCII_DTOSTR_BUF_SIZE, ".") == NULL)
+	  {
+	    g_string_append (buffer, ".0");
+          }
       }
       break;
 
@@ -722,7 +726,7 @@ json_generator_set_root (JsonGenerator *generator,
 
   if (generator->priv->root != NULL)
     {
-      json_node_free (generator->priv->root);
+      json_node_unref (generator->priv->root);
       generator->priv->root = NULL;
     }
 

@@ -553,6 +553,30 @@ json_deserialize_pspec (GValue     *value,
 	    }
           break;
 
+        case G_TYPE_LONG:
+	  if (G_VALUE_HOLDS (&node_value, G_TYPE_INT64))
+	    {
+	      g_value_set_long (value, (glong) g_value_get_int64 (&node_value));
+	      retval = TRUE;
+	    }
+          break;
+
+        case G_TYPE_ULONG:
+	  if (G_VALUE_HOLDS (&node_value, G_TYPE_INT64))
+	    {
+	      g_value_set_ulong (value, (gulong) g_value_get_int64 (&node_value));
+	      retval = TRUE;
+	    }
+          break;
+
+        case G_TYPE_UINT64:
+	  if (G_VALUE_HOLDS (&node_value, G_TYPE_INT64))
+	    {
+	      g_value_set_uint64 (value, (guint64) g_value_get_int64 (&node_value));
+	      retval = TRUE;
+	    }
+          break;
+
         case G_TYPE_DOUBLE:
 
 	  if (G_VALUE_HOLDS (&node_value, G_TYPE_DOUBLE))
@@ -695,6 +719,10 @@ json_serialize_pspec (const GValue *real_value,
       retval = json_node_init_int (json_node_alloc (), g_value_get_ulong (real_value));
       break;
 
+    case G_TYPE_UINT64:
+      retval = json_node_init_int (json_node_alloc (), g_value_get_uint64 (real_value));
+      break;
+
     case G_TYPE_FLOAT:
       retval = json_node_init_double (json_node_alloc (), g_value_get_float (real_value));
       break;
@@ -811,7 +839,7 @@ json_gobject_deserialize (GType     gtype,
  * map to a property of the #GObject
  *
  * Return value: (transfer full): the newly created #JsonNode
- *   of type %JSON_NODE_OBJECT. Use json_node_free() to free
+ *   of type %JSON_NODE_OBJECT. Use json_node_unref() to free
  *   the resources allocated by this function
  *
  * Since: 0.10
@@ -909,9 +937,9 @@ json_gobject_from_data (GType         gtype,
   root = json_parser_get_root (parser);
   if (root == NULL || JSON_NODE_TYPE (root) != JSON_NODE_OBJECT)
     {
-      /* translators: the %s is the name of the data structure */
       g_set_error (error, JSON_PARSER_ERROR,
                    JSON_PARSER_ERROR_PARSE,
+                   /* translators: the %s is the name of the data structure */
                    _("Expecting a JSON object, but the root node is of type `%s'"),
                    json_node_type_name (root));
       g_object_unref (parser);
@@ -984,7 +1012,7 @@ json_gobject_to_data (GObject *gobject,
   data = json_generator_to_data (gen, length);
   g_object_unref (gen);
 
-  json_node_free (root);
+  json_node_unref (root);
 
   return data;
 }

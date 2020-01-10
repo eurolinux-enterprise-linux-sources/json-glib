@@ -48,21 +48,21 @@
  *
  * Json minor version component (e.g. 2 if %JSON_VERSION is 1.2.3)
  */
-#define JSON_MINOR_VERSION              (0)
+#define JSON_MINOR_VERSION              (2)
 
 /**
  * JSON_MICRO_VERSION:
  *
  * Json micro version component (e.g. 3 if %JSON_VERSION is 1.2.3)
  */
-#define JSON_MICRO_VERSION              (2)
+#define JSON_MICRO_VERSION              (6)
 
 /**
  * JSON_VERSION
  *
  * Json version.
  */
-#define JSON_VERSION                    (1.0.2)
+#define JSON_VERSION                    (1.2.6)
 
 /**
  * JSON_VERSION_S:
@@ -70,7 +70,7 @@
  * JSON-GLib version, encoded as a string, useful for printing and
  * concatenation.
  */
-#define JSON_VERSION_S                  "1.0.2"
+#define JSON_VERSION_S                  "1.2.6"
 
 #define JSON_ENCODE_VERSION(major,minor,micro) \
         ((major) << 24 | (minor) << 16 | (micro) << 8)

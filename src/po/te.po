@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: json-glib master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=json-"
 "glib\n"
-"POT-Creation-Date: 2014-05-30 18:34+0100\n"
+"POT-Creation-Date: 2017-03-13 14:53+0000\n"
 "PO-Revision-Date: 2012-10-09 16:48+0530\n"
 "Last-Translator: sasi <sasi@swecha.net>\n"
 "Language-Team: telugu <localization@swecha.net>\n"
@@ -29,54 +29,78 @@ msgstr ""
 msgid "Indentation spaces"
 msgstr ""
 
+#. Translators: the first %s is the program name, the second one
+#. * is the URI of the file, the third is the error message.
+#.
 #: json-glib/json-glib-format.c:77 json-glib/json-glib-validate.c:63
 #, c-format
 msgid "%s: %s: error opening file: %s\n"
 msgstr ""
 
+#. Translators: the first %s is the program name, the second one
+#. * is the URI of the file, the third is the error message.
+#.
 #: json-glib/json-glib-format.c:89 json-glib/json-glib-validate.c:75
 #, c-format
 msgid "%s: %s: error parsing file: %s\n"
 msgstr ""
 
+#. Translators: the first %s is the program name, the
+#. * second one is the URI of the file.
+#.
 #: json-glib/json-glib-format.c:108
 #, c-format
 msgid "%s: %s: error writing to stdout"
 msgstr ""
 
-#: json-glib/json-glib-format.c:128 json-glib/json-glib-validate.c:87
+#. Translators: the first %s is the program name, the second one
+#. * is the URI of the file, the third is the error message.
+#.
+#: json-glib/json-glib-format.c:129 json-glib/json-glib-validate.c:87
 #, fuzzy, c-format
 msgid "%s: %s: error closing: %s\n"
 msgstr "% s:% d: అన్వయ దోషం:% s"
 
-#: json-glib/json-glib-format.c:157 json-glib/json-glib-validate.c:115
+#: json-glib/json-glib-format.c:158 json-glib/json-glib-validate.c:115
 msgid "FILE"
 msgstr ""
 
-#: json-glib/json-glib-format.c:160
+#. Translators: this message will appear after the usage string
+#. and before the list of options.
+#: json-glib/json-glib-format.c:161
 msgid "Format JSON files."
 msgstr ""
 
-#: json-glib/json-glib-format.c:161
+#: json-glib/json-glib-format.c:162
 msgid "json-glib-format formats JSON resources."
 msgstr ""
 
-#: json-glib/json-glib-format.c:178 json-glib/json-glib-validate.c:136
+#. Translators: the %s is the program name. This error message
+#. * means the user is calling json-glib-validate without any
+#. * argument.
+#.
+#: json-glib/json-glib-format.c:179 json-glib/json-glib-validate.c:136
 #, c-format
 msgid "Error parsing commandline options: %s\n"
 msgstr ""
 
-#: json-glib/json-glib-format.c:180 json-glib/json-glib-format.c:194
+#: json-glib/json-glib-format.c:181 json-glib/json-glib-format.c:195
 #: json-glib/json-glib-validate.c:138 json-glib/json-glib-validate.c:152
 #, c-format
 msgid "Try \"%s --help\" for more information."
 msgstr ""
 
-#: json-glib/json-glib-format.c:192 json-glib/json-glib-validate.c:150
+#. Translators: the %s is the program name. This error message
+#. * means the user is calling json-glib-validate without any
+#. * argument.
+#.
+#: json-glib/json-glib-format.c:193 json-glib/json-glib-validate.c:150
 #, c-format
 msgid "%s: missing files"
 msgstr ""
 
+#. Translators: this message will appear after the usage string
+#. and before the list of options.
 #: json-glib/json-glib-validate.c:118
 msgid "Validate JSON files."
 msgstr ""
@@ -85,11 +109,13 @@ msgstr ""
 msgid "json-glib-validate validates JSON data at the given URI."
 msgstr ""
 
-#: json-glib/json-gobject.c:915
+#. translators: the %s is the name of the data structure
+#: json-glib/json-gobject.c:943
 #, c-format
 msgid "Expecting a JSON object, but the root node is of type `%s'"
 msgstr "ఒక JSON అంశంకు అవకాశం ఉంది, కానీ రూట్ నోడ్`% s' రకంగా ఉంటుంది "
 
+#. translators: the '%s' is the type name
 #: json-glib/json-gvariant.c:523
 #, c-format
 msgid "Unexpected type '%s' in JSON node"
@@ -116,25 +142,29 @@ msgid ""
 "A GVariant dictionary entry expects a JSON object with exactly one member"
 msgstr "ఒక GVariant నిఘంటువు ఎంట్రీ సరిగ్గా ఒక సభ్యుడుగా ఉంటుందని ఒక JSON అంశం అంచనా "
 
-#: json-glib/json-gvariant.c:1244
+#: json-glib/json-gvariant.c:1248
 #, c-format
 msgid "GVariant class '%c' not supported"
 msgstr "GVariant తరగతి '%c'మద్దతు లేదు"
 
-#: json-glib/json-gvariant.c:1292
+#: json-glib/json-gvariant.c:1296
 msgid "Invalid GVariant signature"
 msgstr "చెల్లని GVariant సంతకం"
 
-#: json-glib/json-gvariant.c:1340
+#: json-glib/json-gvariant.c:1344
 msgid "JSON data is empty"
 msgstr "JSON డేటా ఖాళీగా ఉంది"
 
-#: json-glib/json-parser.c:815
+#. translators: %s: is the file name, the first %d is the line
+#. * number, the second %d is the position on the line, and %s is
+#. * the error message
+#.
+#: json-glib/json-parser.c:907
 #, fuzzy, c-format
 msgid "%s:%d:%d: Parse error: %s"
 msgstr "% s:% d: అన్వయ దోషం:% s"
 
-#: json-glib/json-parser.c:883
+#: json-glib/json-parser.c:990
 msgid "JSON data must be UTF-8 encoded"
 msgstr ""
 
@@ -142,6 +172,7 @@ msgstr ""
 msgid "Only one root node is allowed in a JSONPath expression"
 msgstr "కేవలం ఒక రూట్ నోడ్కు ఒక JSONPath వ్యక్తీకరణ లో అనుమతి ఉంది"
 
+#. translators: the %c is the invalid character
 #: json-glib/json-path.c:397
 #, c-format
 msgid "Root node followed by invalid character '%c'"
@@ -176,60 +207,60 @@ msgstr "చెల్లని వరు సూచిక నిర్వచనం
 msgid "Invalid first character '%c'"
 msgstr ""
 
-#: json-glib/json-reader.c:456
+#: json-glib/json-reader.c:474
 #, c-format
 msgid ""
 "The current node is of type '%s', but an array or an object was expected."
 msgstr "ప్రస్తుత నోడ్ రకం '%s' యొక్క, కానీ ఒక విన్యాసం లేదా ఒక వస్తువు భావించారు."
 
-#: json-glib/json-reader.c:468
+#: json-glib/json-reader.c:486
 #, c-format
 msgid ""
 "The index '%d' is greater than the size of the array at the current position."
 msgstr "ఇండెక్స్ '%d' ప్రస్తుత స్థితి వద్ద శ్రేణి యొక్క పరిమాణం కంటే ఎక్కువగా ఉంటుంది."
 
-#: json-glib/json-reader.c:485
+#: json-glib/json-reader.c:503
 #, c-format
 msgid ""
 "The index '%d' is greater than the size of the object at the current "
 "position."
 msgstr "ఇండెక్స్ '%d' ప్రస్తుత స్థితి వద్ద వస్తువు యొక్క పరిమాణం కంటే ఎక్కువగా ఉంటుంది."
 
-#: json-glib/json-reader.c:570 json-glib/json-reader.c:724
-#: json-glib/json-reader.c:775 json-glib/json-reader.c:813
-#: json-glib/json-reader.c:851 json-glib/json-reader.c:889
-#: json-glib/json-reader.c:927 json-glib/json-reader.c:972
-#: json-glib/json-reader.c:1008 json-glib/json-reader.c:1034
+#: json-glib/json-reader.c:587 json-glib/json-reader.c:751
+#: json-glib/json-reader.c:802 json-glib/json-reader.c:840
+#: json-glib/json-reader.c:878 json-glib/json-reader.c:916
+#: json-glib/json-reader.c:954 json-glib/json-reader.c:999
+#: json-glib/json-reader.c:1035 json-glib/json-reader.c:1061
 msgid "No node available at the current position"
 msgstr "ప్రస్తుత స్థానంలో అందుబాటులో లేదు నోడ్ "
 
-#: json-glib/json-reader.c:577
+#: json-glib/json-reader.c:594
 #, c-format
 msgid "The current position holds a '%s' and not an array"
 msgstr "ప్రస్తుత స్థితి ఒక '%s'కలిగి ఉంది మరియు వరుస కాదు "
 
-#: json-glib/json-reader.c:640
+#: json-glib/json-reader.c:670
 #, c-format
 msgid "The current node is of type '%s', but an object was expected."
 msgstr "ప్రస్తుత నోడ్ '%s' యొక్క  రకం, కానీ ఒక వస్తువుని భావించారు."
 
-#: json-glib/json-reader.c:647
+#: json-glib/json-reader.c:677
 #, c-format
 msgid "The member '%s' is not defined in the object at the current position."
 msgstr "సభ్యుడు '%s', ప్రస్తుత స్థితి వద్ద అంశం వివరించబడలేదు."
 
-#: json-glib/json-reader.c:731 json-glib/json-reader.c:782
+#: json-glib/json-reader.c:758 json-glib/json-reader.c:809
 #, c-format
 msgid "The current position holds a '%s' and not an object"
 msgstr "ప్రస్తుత స్థితి ఒక '%s' కలిగి ఉంది మరియు ఒక వస్తువు కాదు "
 
-#: json-glib/json-reader.c:822 json-glib/json-reader.c:860
-#: json-glib/json-reader.c:898 json-glib/json-reader.c:936
-#: json-glib/json-reader.c:981
+#: json-glib/json-reader.c:849 json-glib/json-reader.c:887
+#: json-glib/json-reader.c:925 json-glib/json-reader.c:963
+#: json-glib/json-reader.c:1008
 #, c-format
 msgid "The current position holds a '%s' and not a value"
 msgstr "ప్రస్తుత స్థితి ఒక '%s'కలిగి ఉంది మరియు ఒక విలువ కాదు "
 
-#: json-glib/json-reader.c:944
+#: json-glib/json-reader.c:971
 msgid "The current position does not hold a string type"
 msgstr "ప్రస్తుత స్థితి పదాల రకం కలిగి లేదు"

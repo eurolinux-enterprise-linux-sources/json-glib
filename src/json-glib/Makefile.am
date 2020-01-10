@@ -15,40 +15,42 @@ SUBDIRS = . tests
 
 # main library
 source_h = \
-	$(top_srcdir)/json-glib/json-builder.h		\
-	$(top_srcdir)/json-glib/json-generator.h 	\
-	$(top_srcdir)/json-glib/json-gobject.h 		\
-	$(top_srcdir)/json-glib/json-gvariant.h		\
-	$(top_srcdir)/json-glib/json-parser.h 		\
-	$(top_srcdir)/json-glib/json-path.h		\
-	$(top_srcdir)/json-glib/json-reader.h		\
-	$(top_srcdir)/json-glib/json-types.h 		\
-	$(top_srcdir)/json-glib/json-version-macros.h	\
+	json-builder.h		\
+	json-generator.h 	\
+	json-gobject.h 		\
+	json-gvariant.h		\
+	json-parser.h 		\
+	json-path.h		\
+	json-reader.h		\
+	json-types.h 		\
+	json-utils.h		\
+	json-version-macros.h	\
 	$(NULL)
 
 source_h_private = \
-	$(top_srcdir)/json-glib/json-debug.h		\
-	$(top_srcdir)/json-glib/json-gobject-private.h	\
-	$(top_srcdir)/json-glib/json-scanner.h 		\
-	$(top_srcdir)/json-glib/json-types-private.h	\
+	json-debug.h		\
+	json-gobject-private.h	\
+	json-scanner.h 		\
+	json-types-private.h	\
 	$(NULL)
 
 source_c = \
-	$(srcdir)/json-array.c 		\
-	$(srcdir)/json-builder.c	\
-	$(srcdir)/json-debug.c		\
-	$(srcdir)/json-gboxed.c		\
-	$(srcdir)/json-generator.c 	\
-	$(srcdir)/json-gobject.c 	\
-	$(srcdir)/json-gvariant.c	\
-	$(srcdir)/json-node.c 		\
-	$(srcdir)/json-object.c 	\
-	$(srcdir)/json-parser.c 	\
-	$(srcdir)/json-path.c		\
-	$(srcdir)/json-reader.c		\
-	$(srcdir)/json-scanner.c 	\
-	$(srcdir)/json-serializable.c	\
-	$(srcdir)/json-value.c		\
+	json-array.c 		\
+	json-builder.c	\
+	json-debug.c		\
+	json-gboxed.c		\
+	json-generator.c 	\
+	json-gobject.c 	\
+	json-gvariant.c	\
+	json-node.c 		\
+	json-object.c 	\
+	json-parser.c 	\
+	json-path.c		\
+	json-reader.c		\
+	json-scanner.c 	\
+	json-serializable.c	\
+	json-utils.c		\
+	json-value.c		\
 	$(NULL)
 
 DISTCLEANFILES += json-version.h
@@ -58,11 +60,6 @@ glib_enum_h = json-enum-types.h
 glib_enum_c = json-enum-types.c
 glib_enum_headers = $(source_h)
 include $(top_srcdir)/build/autotools/Makefile.am.enums
-
-# glib-genmarshal rules
-glib_marshal_list = json-marshal.list
-glib_marshal_prefix = _json_marshal
-include $(top_srcdir)/build/autotools/Makefile.am.marshal
 
 lib_LTLIBRARIES += libjson-glib-1.0.la
 
@@ -83,10 +80,10 @@ libjson_glib_1_0_la_LDFLAGS = $(JSON_LT_LDFLAGS) $(JSON_GCOV_LDADD) -export-dyna
 
 jsonincludedir = $(includedir)/json-glib-1.0/json-glib
 jsoninclude_DATA = \
-	$(source_h) 					\
-	$(top_builddir)/json-glib/json-enum-types.h 	\
-	$(top_builddir)/json-glib/json-version.h	\
-	$(top_srcdir)/json-glib/json-glib.h		\
+	$(source_h) \
+	json-enum-types.h \
+	json-version.h \
+	json-glib.h \
 	$(NULL)
 
 EXTRA_DIST += json-version.h.in json-glib.h json-version.h
@@ -123,9 +120,9 @@ INTROSPECTION_GIRS = Json-1.0.gir
 introspection_source = \
 	$(source_c) \
 	$(source_h) \
-	$(top_builddir)/json-glib/json-enum-types.h \
-	$(top_builddir)/json-glib/json-enum-types.c \
-	$(top_builddir)/json-glib/json-version.h
+	json-enum-types.h \
+	json-enum-types.c \
+	json-version.h
 
 Json-1.0.gir: libjson-glib-1.0.la Makefile
 
@@ -147,39 +144,40 @@ CLEANFILES += $(dist_gir_DATA) $(typelibs_DATA)
 endif # HAVE_INTROSPECTION
 
 # visual studio
-dist-hook: ../build/win32/vs9/json-glib.vcproj ../build/win32/vs10/json-glib.vcxproj ../build/win32/vs10/json-glib.vcxproj.filters
 
-../build/win32/vs9/json-glib.vcproj: $(top_srcdir)/build/win32/vs9/json-glib.vcprojin
-	for F in $(libjson_glib_1_0_la_SOURCES); do \
-		case $$F in \
-		*.c)	echo '   <File RelativePath="..\..\..\json-glib\'$$F'" />' \
-			;; \
-		esac; \
-	done >jsonglib.sourcefiles
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs9/json-glib.vcprojin >$@
-	rm jsonglib.sourcefiles
-	
-../build/win32/vs10/json-glib.vcxproj: $(top_srcdir)/build/win32/vs10/json-glib.vcxprojin
-	for F in $(libjson_glib_1_0_la_SOURCES); do \
-		case $$F in \
-		*.c)	echo '    <ClCompile Include="..\..\..\json-glib\'$$F'" />' \
-			;; \
-		esac; \
-	done >jsonglib.vs10.sourcefiles
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/json-glib.vcxprojin >$@
-	rm jsonglib.vs10.sourcefiles
-	
-../build/win32/vs10/json-glib.vcxproj.filters: $(top_srcdir)/build/win32/vs10/json-glib.vcxproj.filtersin
-	for F in $(libjson_glib_1_0_la_SOURCES); do \
-		case $$F in \
-		*.c)	echo '    <ClCompile Include="..\..\..\json-glib\'$$F'"><Filter>Sources</Filter></ClCompile>' \
-			;; \
-		esac; \
-	done >jsonglib.vs10.sourcefiles.filters
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/json-glib.vcxproj.filtersin >$@
-	rm jsonglib.vs10.sourcefiles.filters
+MSVCPROJS = json-glib
 
-# Let the VS9/VS10 Project files be cleared out before they are re-expanded...
-DISTCLEANFILES += ../build/win32/vs9/json-glib.vcproj	\
-		  ../build/win32/vs10/json-glib.vcxproj	\
-		  ../build/win32/vs10/json-glib.vcxproj.filters
+json_glib_FILES = $(libjson_glib_1_0_la_SOURCES)
+json_glib_EXCLUDES = jgdummy
+
+json_glib_HEADERS_DIR = $(jsonincludedir)
+json_glib_HEADERS_INST = $(jsoninclude_DATA)
+json_glib_HEADERS_EXCLUDES = jgdummy
+
+include $(top_srcdir)/build/Makefile.msvcproj
+
+# NMake/MSVC introspection
+if HAVE_INTROSPECTION
+NMAKE_INTROSPECTION_FILES = \
+	$(top_builddir)/build/win32/Json-1.0.gir.msvc.introspect	\
+	$(top_builddir)/build/win32/Json_1_0_gir_list
+
+MSVC_INTROSPECT_GIRS = Json-1.0.gir
+
+Json_1_0_gir_MSVC_FILES = $(Json_1_0_gir_FILES)
+
+Json_1_0_gir_MSVC_INCLUDE_GIRS = $(Json_1_0_gir_INCLUDES)
+Json_1_0_gir_MSVC_LIBS = json-glib-1.0
+Json_1_0_gir_MSVC_CFLAGS = -DJSON_COMPILATION=1 -I..\\..
+
+Json_1_0_gir_MSVC_SCANNERFLAGS = $(Json_1_0_gir_SCANNERFLAGS)
+
+include $(top_srcdir)/build/Makefile.msvc-introspection
+else
+NMAKE_INTROSPECTION_FILES =
+endif
+
+dist-hook:	\
+	$(top_builddir)/build/win32/vs9/json-glib.vcproj		\
+	$(top_builddir)/build/win32/vs9/json-glib.headers	\
+	$(NMAKE_INTROSPECTION_FILES)
