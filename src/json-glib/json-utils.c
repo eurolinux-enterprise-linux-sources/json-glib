@@ -55,7 +55,6 @@ json_from_string (const char  *str,
 
   g_return_val_if_fail (str != NULL, NULL);
 
-  error = NULL;
   parser = json_parser_new ();
   if (!json_parser_load_from_data (parser, str, -1, error))
     {
@@ -63,7 +62,7 @@ json_from_string (const char  *str,
       return NULL;
     }
 
-  retval = json_node_copy (json_parser_get_root (parser));
+  retval = json_parser_steal_root (parser);
 
   g_object_unref (parser);
 

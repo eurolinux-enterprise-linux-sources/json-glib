@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: json-glib master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=json-"
-"glib\n"
-"POT-Creation-Date: 2017-03-13 14:53+0000\n"
+"glib&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-09-12 18:19+0000\n"
 "PO-Revision-Date: 2016-09-18 10:56+0200\n"
 "Last-Translator: David King <amigadave@amigadave.com>\n"
 "Language-Team: British English <en_GB@li.org>\n"
@@ -106,13 +106,11 @@ msgstr "Validate JSON files."
 msgid "json-glib-validate validates JSON data at the given URI."
 msgstr "json-glib-validate validates JSON data at the given URI."
 
-#. translators: the %s is the name of the data structure
 #: json-glib/json-gobject.c:943
 #, c-format
 msgid "Expecting a JSON object, but the root node is of type `%s'"
 msgstr "Expecting a JSON object, but the root node is of type `%s'"
 
-#. translators: the '%s' is the type name
 #: json-glib/json-gvariant.c:523
 #, c-format
 msgid "Unexpected type '%s' in JSON node"
@@ -153,16 +151,12 @@ msgstr "Invalid GVariant signature"
 msgid "JSON data is empty"
 msgstr "JSON data is empty"
 
-#. translators: %s: is the file name, the first %d is the line
-#. * number, the second %d is the position on the line, and %s is
-#. * the error message
-#.
-#: json-glib/json-parser.c:907
+#: json-glib/json-parser.c:914
 #, c-format
 msgid "%s:%d:%d: Parse error: %s"
 msgstr "%s:%d:%d: Parse error: %s"
 
-#: json-glib/json-parser.c:990
+#: json-glib/json-parser.c:997
 msgid "JSON data must be UTF-8 encoded"
 msgstr "JSON data must be UTF-8 encoded"
 
@@ -170,7 +164,6 @@ msgstr "JSON data must be UTF-8 encoded"
 msgid "Only one root node is allowed in a JSONPath expression"
 msgstr "Only one root node is allowed in a JSONPath expression"
 
-#. translators: the %c is the invalid character
 #: json-glib/json-path.c:397
 #, c-format
 msgid "Root node followed by invalid character '%c'"
@@ -205,21 +198,21 @@ msgstr "Invalid array index definition '%*s'"
 msgid "Invalid first character '%c'"
 msgstr "Invalid first character '%c'"
 
-#: json-glib/json-reader.c:474
+#: json-glib/json-reader.c:473
 #, c-format
 msgid ""
 "The current node is of type '%s', but an array or an object was expected."
 msgstr ""
 "The current node is of type '%s', but an array or an object was expected."
 
-#: json-glib/json-reader.c:486
+#: json-glib/json-reader.c:485
 #, c-format
 msgid ""
 "The index '%d' is greater than the size of the array at the current position."
 msgstr ""
 "The index '%d' is greater than the size of the array at the current position."
 
-#: json-glib/json-reader.c:503
+#: json-glib/json-reader.c:502
 #, c-format
 msgid ""
 "The index '%d' is greater than the size of the object at the current "
@@ -228,41 +221,41 @@ msgstr ""
 "The index '%d' is greater than the size of the object at the current "
 "position."
 
-#: json-glib/json-reader.c:587 json-glib/json-reader.c:751
-#: json-glib/json-reader.c:802 json-glib/json-reader.c:840
-#: json-glib/json-reader.c:878 json-glib/json-reader.c:916
-#: json-glib/json-reader.c:954 json-glib/json-reader.c:999
-#: json-glib/json-reader.c:1035 json-glib/json-reader.c:1061
+#: json-glib/json-reader.c:586 json-glib/json-reader.c:750
+#: json-glib/json-reader.c:801 json-glib/json-reader.c:839
+#: json-glib/json-reader.c:877 json-glib/json-reader.c:915
+#: json-glib/json-reader.c:953 json-glib/json-reader.c:998
+#: json-glib/json-reader.c:1034 json-glib/json-reader.c:1060
 msgid "No node available at the current position"
 msgstr "No node available at the current position"
 
-#: json-glib/json-reader.c:594
+#: json-glib/json-reader.c:593
 #, c-format
 msgid "The current position holds a '%s' and not an array"
 msgstr "The current position holds a '%s' and not an array"
 
-#: json-glib/json-reader.c:670
+#: json-glib/json-reader.c:669
 #, c-format
 msgid "The current node is of type '%s', but an object was expected."
 msgstr "The current node is of type '%s', but an object was expected."
 
-#: json-glib/json-reader.c:677
+#: json-glib/json-reader.c:676
 #, c-format
 msgid "The member '%s' is not defined in the object at the current position."
 msgstr "The member '%s' is not defined in the object at the current position."
 
-#: json-glib/json-reader.c:758 json-glib/json-reader.c:809
+#: json-glib/json-reader.c:757 json-glib/json-reader.c:808
 #, c-format
 msgid "The current position holds a '%s' and not an object"
 msgstr "The current position holds a '%s' and not an object"
 
-#: json-glib/json-reader.c:849 json-glib/json-reader.c:887
-#: json-glib/json-reader.c:925 json-glib/json-reader.c:963
-#: json-glib/json-reader.c:1008
+#: json-glib/json-reader.c:848 json-glib/json-reader.c:886
+#: json-glib/json-reader.c:924 json-glib/json-reader.c:962
+#: json-glib/json-reader.c:1007
 #, c-format
 msgid "The current position holds a '%s' and not a value"
 msgstr "The current position holds a '%s' and not a value"
 
-#: json-glib/json-reader.c:971
+#: json-glib/json-reader.c:970
 msgid "The current position does not hold a string type"
 msgstr "The current position does not hold a string type"

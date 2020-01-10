@@ -67,7 +67,7 @@ json_object_new (void)
   object->members = g_hash_table_new_full (g_str_hash, g_str_equal,
                                            g_free,
                                            (GDestroyNotify) json_node_unref);
-  object->members_ordered = NULL;
+  g_queue_init (&object->members_ordered);
 
   return object;
 }
@@ -108,9 +108,8 @@ json_object_unref (JsonObject *object)
 
   if (--object->ref_count == 0)
     {
-      g_list_free (object->members_ordered);
+      g_queue_clear (&object->members_ordered);
       g_hash_table_destroy (object->members);
-      object->members_ordered = NULL;
       object->members = NULL;
 
       g_slice_free (JsonObject, object);
@@ -177,7 +176,7 @@ object_set_member_internal (JsonObject  *object,
   gchar *name = g_strdup (member_name);
 
   if (g_hash_table_lookup (object->members, name) == NULL)
-    object->members_ordered = g_list_prepend (object->members_ordered, name);
+    g_queue_push_tail (&object->members_ordered, name);
   else
     {
       GList *l;
@@ -186,7 +185,7 @@ object_set_member_internal (JsonObject  *object,
        * pointer to its name, to avoid keeping invalid pointers
        * once we replace the key in the hash table
        */
-      l = g_list_find_custom (object->members_ordered, name, (GCompareFunc) strcmp);
+      l = g_queue_find_custom (&object->members_ordered, name, (GCompareFunc) strcmp);
       if (l != NULL)
         l->data = name;
     }
@@ -474,22 +473,27 @@ json_object_set_object_member (JsonObject  *object,
  * Retrieves all the names of the members of a #JsonObject. You can
  * obtain the value for each member using json_object_get_member().
  *
- * Return value: (element-type utf8) (transfer container): a #GList
- *   of member names. The content of the list is owned by the #JsonObject
- *   and should never be modified or freed. When you have finished using
- *   the returned list, use g_list_free() to free the resources it has
- *   allocated.
+ * Return value: (element-type utf8) (transfer container) (nullable): a
+ *   #GList of member names, or %NULL. The content of the list is owned
+ *   by the #JsonObject and should never be modified or freed. When you
+ *   have finished using the returned list, use g_list_free() to free
+ *   the resources it has allocated.
  */
 GList *
 json_object_get_members (JsonObject *object)
 {
-  GList *copy;
-
   g_return_val_if_fail (object != NULL, NULL);
 
-  copy = g_list_copy (object->members_ordered);
+  return g_list_copy (object->members_ordered.head);
+}
 
-  return g_list_reverse (copy);
+
+GQueue *
+json_object_get_members_internal (JsonObject *object)
+{
+  g_return_val_if_fail (object != NULL, NULL);
+
+  return &object->members_ordered;
 }
 
 /**
@@ -498,10 +502,11 @@ json_object_get_members (JsonObject *object)
  *
  * Retrieves all the values of the members of a #JsonObject.
  *
- * Return value: (element-type JsonNode) (transfer container): a #GList of
- *   #JsonNodes. The content of the list is owned by the #JsonObject
- *   and should never be modified or freed. When you have finished using the
- *   returned list, use g_list_free() to free the resources it has allocated.
+ * Return value: (element-type JsonNode) (transfer container) (nullable): a
+ *   #GList of #JsonNodes, or %NULL. The content of the list is owned by the
+ *   #JsonObject and should never be modified or freed. When you have finished
+ *   using the returned list, use g_list_free() to free the resources it has
+ *   allocated.
  */
 GList *
 json_object_get_values (JsonObject *object)
@@ -511,7 +516,7 @@ json_object_get_values (JsonObject *object)
   g_return_val_if_fail (object != NULL, NULL);
 
   values = NULL;
-  for (l = object->members_ordered; l != NULL; l = l->next)
+  for (l = object->members_ordered.tail; l != NULL; l = l->prev)
     values = g_list_prepend (values, g_hash_table_lookup (object->members, l->data));
 
   return values;
@@ -525,8 +530,8 @@ json_object_get_values (JsonObject *object)
  * Retrieves a copy of the #JsonNode containing the value of @member_name
  * inside a #JsonObject
  *
- * Return value: (transfer full): a copy of the node for the requested
- *   object member or %NULL. Use json_node_unref() when done.
+ * Return value: (transfer full) (nullable): a copy of the node for the
+ *   requested object member or %NULL. Use json_node_unref() when done.
  *
  * Since: 0.6
  */
@@ -561,8 +566,8 @@ object_get_member_internal (JsonObject  *object,
  * Retrieves the #JsonNode containing the value of @member_name inside
  * a #JsonObject.
  *
- * Return value: (transfer none): a pointer to the node for the requested object
- *   member, or %NULL
+ * Return value: (transfer none) (nullable): a pointer to the node for the
+ *   requested object member, or %NULL
  */
 JsonNode *
 json_object_get_member (JsonObject  *object,
@@ -854,13 +859,13 @@ json_object_remove_member (JsonObject  *object,
   g_return_if_fail (object != NULL);
   g_return_if_fail (member_name != NULL);
 
-  for (l = object->members_ordered; l != NULL; l = l->next)
+  for (l = object->members_ordered.head; l != NULL; l = l->next)
     {
       const gchar *name = l->data;
 
       if (g_strcmp0 (name, member_name) == 0)
         {
-          object->members_ordered = g_list_delete_link (object->members_ordered, l);
+          g_queue_delete_link (&object->members_ordered, l);
           break;
         }
     }
@@ -888,14 +893,12 @@ json_object_foreach_member (JsonObject        *object,
                             JsonObjectForeach  func,
                             gpointer           data)
 {
-  GList *members, *l;
+  GList *l;
 
   g_return_if_fail (object != NULL);
   g_return_if_fail (func != NULL);
 
-  /* the list is stored in reverse order to have constant time additions */
-  members = g_list_last (object->members_ordered);
-  for (l = members; l != NULL; l = l->prev)
+  for (l = object->members_ordered.head; l != NULL; l = l->next)
     {
       const gchar *member_name = l->data;
       JsonNode *member_node = g_hash_table_lookup (object->members, member_name);

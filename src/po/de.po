@@ -1,24 +1,24 @@
 # German translation for json-glib.
 # Copyright (C) 2011 json-glib's COPYRIGHT HOLDER
 # This file is distributed under the same license as the json-glib package.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2011.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2011, 2017.
 # Wolfgang Stöggl <c72578@yahoo.de>, 2012, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: json-glib master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=json-"
-"glib\n"
-"POT-Creation-Date: 2017-03-13 14:53+0000\n"
-"PO-Revision-Date: 2014-08-14 15:52+0100\n"
-"Last-Translator: Wolfgang Stoeggl <c72578@yahoo.de>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=json-"
+"glib&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-03-18 16:05+0000\n"
+"PO-Revision-Date: 2017-04-28 12:13+0200\n"
+"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #: json-glib/json-glib-format.c:50
 msgid "Prettify output"
@@ -86,7 +86,7 @@ msgstr "Fehler beim Verarbeiten der Befehlszeilenoptionen: %s\n"
 #: json-glib/json-glib-format.c:181 json-glib/json-glib-format.c:195
 #: json-glib/json-glib-validate.c:138 json-glib/json-glib-validate.c:152
 #, c-format
-msgid "Try \"%s --help\" for more information."
+msgid "Try “%s --help” for more information."
 msgstr "Versuchen Sie »%s --help« für mehr Informationen."
 
 #. Translators: the %s is the program name. This error message
@@ -111,13 +111,13 @@ msgstr "json-glib-validate prüft JSON-Daten der angegebenen Adresse."
 #. translators: the %s is the name of the data structure
 #: json-glib/json-gobject.c:943
 #, c-format
-msgid "Expecting a JSON object, but the root node is of type `%s'"
+msgid "Expecting a JSON object, but the root node is of type “%s”"
 msgstr "Ein JSON-Objekt wurde erwartet, aber der Root-Knoten hat den Typ »%s«"
 
 #. translators: the '%s' is the type name
 #: json-glib/json-gvariant.c:523
 #, c-format
-msgid "Unexpected type '%s' in JSON node"
+msgid "Unexpected type “%s” in JSON node"
 msgstr "Unerwarteter Typ »%s« im JSON-Knoten"
 
 #: json-glib/json-gvariant.c:593
@@ -125,7 +125,7 @@ msgid "Missing elements in JSON array to conform to a tuple"
 msgstr "Elemente im JSON-Array fehlen, um konform zu einem Tupel zu sein"
 
 #: json-glib/json-gvariant.c:621
-msgid "Missing closing symbol ')' in the GVariant tuple type"
+msgid "Missing closing symbol “)” in the GVariant tuple type"
 msgstr "Schließende Klammer »)« im Typ des GVariant-Tupels fehlt"
 
 #: json-glib/json-gvariant.c:629
@@ -141,11 +141,11 @@ msgid ""
 "A GVariant dictionary entry expects a JSON object with exactly one member"
 msgstr ""
 "Ein GVariant-Verzeichniseintrag erwartet ein JSON-Objekt mit genau einem "
-"Mitglied"
+"Element"
 
 #: json-glib/json-gvariant.c:1248
 #, c-format
-msgid "GVariant class '%c' not supported"
+msgid "GVariant class “%c” not supported"
 msgstr "GVariant-Klasse »%c« wird nicht unterstützt"
 
 #: json-glib/json-gvariant.c:1296
@@ -169,49 +169,49 @@ msgstr "%s:%d:%d: Verarbeitungsfehler: %s"
 msgid "JSON data must be UTF-8 encoded"
 msgstr "JSON-Daten müssen in UTF-8 kodiert sein"
 
-#: json-glib/json-path.c:388
+#: json-glib/json-path.c:389
 msgid "Only one root node is allowed in a JSONPath expression"
 msgstr "Im JSONPath-Ausdruck ist nur ein einziger Root-Knoten erlaubt"
 
 #. translators: the %c is the invalid character
-#: json-glib/json-path.c:397
+#: json-glib/json-path.c:398
 #, c-format
-msgid "Root node followed by invalid character '%c'"
+msgid "Root node followed by invalid character “%c”"
 msgstr "Auf den Root-Knoten folgt das ungültige Zeichen »%c«"
 
-#: json-glib/json-path.c:437
+#: json-glib/json-path.c:438
 msgid "Missing member name or wildcard after . character"
-msgstr "Name des Mitglieds oder Platzhalter nach dem . Zeichen fehlt"
+msgstr "Name des Elements oder Platzhalter nach dem . Zeichen fehlt"
 
-#: json-glib/json-path.c:511
+#: json-glib/json-path.c:512
 #, c-format
-msgid "Malformed slice expression '%*s'"
+msgid "Malformed slice expression “%*s”"
 msgstr "Ungültiger Slice-Ausdruck »%*s«"
 
-#: json-glib/json-path.c:555
+#: json-glib/json-path.c:556
 #, c-format
-msgid "Invalid set definition '%*s'"
+msgid "Invalid set definition “%*s”"
 msgstr "Ungültige »set«-Definition »%*s«"
 
-#: json-glib/json-path.c:608
+#: json-glib/json-path.c:609
 #, c-format
-msgid "Invalid slice definition '%*s'"
+msgid "Invalid slice definition “%*s”"
 msgstr "Ungültige »slice«-Definition »%*s«"
 
-#: json-glib/json-path.c:636
+#: json-glib/json-path.c:637
 #, c-format
-msgid "Invalid array index definition '%*s'"
+msgid "Invalid array index definition “%*s”"
 msgstr "Ungültige Array-Index-Definition »%*s«"
 
-#: json-glib/json-path.c:655
+#: json-glib/json-path.c:656
 #, c-format
-msgid "Invalid first character '%c'"
+msgid "Invalid first character “%c”"
 msgstr "Ungültiges erstes Zeichen »%c«"
 
 #: json-glib/json-reader.c:474
 #, c-format
 msgid ""
-"The current node is of type '%s', but an array or an object was expected."
+"The current node is of type “%s”, but an array or an object was expected."
 msgstr ""
 "Der Typ des aktuellen Knotens ist »%s«, aber ein Array oder Objekt wurde "
 "erwartet."
@@ -219,14 +219,14 @@ msgstr ""
 #: json-glib/json-reader.c:486
 #, c-format
 msgid ""
-"The index '%d' is greater than the size of the array at the current position."
+"The index “%d” is greater than the size of the array at the current position."
 msgstr ""
 "Der Index »%d« übersteigt die Größe des Arrays an der aktuellen Position."
 
 #: json-glib/json-reader.c:503
 #, c-format
 msgid ""
-"The index '%d' is greater than the size of the object at the current "
+"The index “%d” is greater than the size of the object at the current "
 "position."
 msgstr ""
 "Der Index »%d« übersteigt die Größe des Objekts an der aktuellen Position."
@@ -241,30 +241,30 @@ msgstr "An der aktuellen Position ist kein Knoten verfügbar"
 
 #: json-glib/json-reader.c:594
 #, c-format
-msgid "The current position holds a '%s' and not an array"
+msgid "The current position holds a “%s” and not an array"
 msgstr "An der aktuellen Position befindet sich ein »%s« und kein Array"
 
 #: json-glib/json-reader.c:670
 #, c-format
-msgid "The current node is of type '%s', but an object was expected."
+msgid "The current node is of type “%s”, but an object was expected."
 msgstr "Der aktuelle Knoten hat den Typ »%s«, aber ein Objekt wurde erwartet."
 
 #: json-glib/json-reader.c:677
 #, c-format
-msgid "The member '%s' is not defined in the object at the current position."
+msgid "The member “%s” is not defined in the object at the current position."
 msgstr ""
-"Das Mitglied »%s« ist im Objekt an der aktuellen Position nicht definiert."
+"Das Element »%s« ist im Objekt an der aktuellen Position nicht definiert."
 
 #: json-glib/json-reader.c:758 json-glib/json-reader.c:809
 #, c-format
-msgid "The current position holds a '%s' and not an object"
+msgid "The current position holds a “%s” and not an object"
 msgstr "An der aktuellen Position befindet sich ein »%s« und kein Objekt"
 
 #: json-glib/json-reader.c:849 json-glib/json-reader.c:887
 #: json-glib/json-reader.c:925 json-glib/json-reader.c:963
 #: json-glib/json-reader.c:1008
 #, c-format
-msgid "The current position holds a '%s' and not a value"
+msgid "The current position holds a “%s” and not a value"
 msgstr ""
 "An der aktuellen Position befindet sich ein »%s«, welches kein Wert ist"
 

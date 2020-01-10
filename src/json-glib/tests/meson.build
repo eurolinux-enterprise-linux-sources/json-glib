@@ -15,44 +15,40 @@ tests = [
   'serialize-full',
 ]
 
-python3 = find_program('python3')
-gen_installed_test = join_paths(meson.current_source_dir(), 'gen-installed-test.py')
-
 test_data = [
   'stream-load.json',
 ]
 
-foreach d: test_data
-  copy = 'from shutil import copyfile; copyfile("@0@", "@1@")'.format(d, join_paths(meson.current_build_dir(), d))
-  cp = run_command(python3, '-c', copy)
-  if cp.returncode() != 0
-    error('Could not copy file: ' + cp.stderr())
-  endif
-endforeach
+installed_test_bindir = join_paths(json_libexecdir, 'installed-tests', json_api_name)
+installed_test_datadir = join_paths(json_datadir, 'installed-tests', json_api_name)
 
-installed_test_dir = join_paths(json_libexecdir, 'installed-tests', 'json-glib-1.0')
-
-install_data(test_data, install_dir: installed_test_dir)
+install_data(test_data, install_dir: installed_test_bindir)
 
 foreach t: tests
-  data = custom_target('@0@.test'.format(t),
-                       output: '@0@.test'.format(t),
+  installed_test = '@0@.test'.format(t)
+  data = custom_target(installed_test,
+                       output: installed_test,
                        command: [
                          python3,
                          gen_installed_test,
-                         '--testdir=@0@'.format(installed_test_dir),
-                         '--testname=@0@.test'.format(t),
+                         '--testdir=@0@'.format(installed_test_bindir),
+                         '--testname=@0@'.format(t),
                          '--outdir=@OUTDIR@',
-                         '--outfile=@0@.test'.format(t),
+                         '--outfile=@0@'.format(installed_test),
                        ],
                        install: true,
-                       install_dir: join_paths(json_datadir, 'installed-tests', 'json-glib-1.0'))
+                       install_dir: installed_test_datadir)
 
   exe = executable(t, '@0@.c'.format(t),
                    c_args: json_c_args,
                    install: true,
-                   install_dir: installed_test_dir,
+                   install_dir: installed_test_bindir,
                    dependencies: [ json_glib_dep, ])
 
-  test(t, exe, args: [ '--tap', '-k' ])
+  test(t, exe,
+       args: [ '--tap', '-k' ],
+       env: [
+         'G_TEST_SRCDIR=@0@'.format(meson.current_source_dir()),
+         'G_TEST_BUILDDIR=@0@'.format(meson.current_build_dir()),
+       ])
 endforeach

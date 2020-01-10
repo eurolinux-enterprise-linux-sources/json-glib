@@ -1,21 +1,23 @@
-%define glib_ver 2.37.6
+%define glib2_version 2.44.0
 
 Name:		json-glib
-Version:	1.2.6
-Release:	1%{?dist}
+Version:	1.4.2
+Release:	2%{?dist}
 Summary:	Library for JavaScript Object Notation format
 
-Group:		System Environment/Libraries
 License:	LGPLv2+
 URL:		https://wiki.gnome.org/Projects/JsonGlib
-#VCS:		git:git://git.gnome.org/json-glib
-Source0:	http://download.gnome.org/sources/%{name}/1.2/%{name}-%{version}.tar.xz
+Source0:	http://download.gnome.org/sources/%{name}/1.4/%{name}-%{version}.tar.xz
 
 BuildRequires:	docbook-style-xsl
-BuildRequires:	glib2-devel >= %{glib_ver}
+BuildRequires:	gettext
+BuildRequires:	glib2-devel >= %{glib2_version}
 BuildRequires:	gobject-introspection-devel
+BuildRequires:	gtk-doc
+BuildRequires:	meson
 BuildRequires:	/usr/bin/xsltproc
 
+Requires:	glib2%{?_isa} >= %{glib2_version}
 
 %description
 %{name} is a library providing serialization and deserialization support
@@ -24,39 +26,41 @@ for the JavaScript Object Notation (JSON) format.
 
 %package devel
 Summary:	Development files for %{name}
-Group:		Development/Libraries
 Requires:	%{name}%{_isa} = %{version}-%{release}
 
 %description devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
+
 %package tests
 Summary: Tests for the json-glib package
-Group: Development/Libraries
 Requires: %{name}%{?_isa} = %{version}-%{release}
 
 %description tests
 The json-glib-tests package contains tests that can be used to verify
 the functionality of the installed json-glib package.
 
+
 %prep
 %setup -q -n %{name}-%{version}
 
 
 %build
-%configure --enable-static=no --enable-installed-tests
-make %{?_smp_mflags} V=1
+%meson -Ddocs=true
+%meson_build
 
 
 %install
-%make_install
-find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
+%meson_install
+
+# Work around multilib content mismatches in header comments
+sed -i -e "s|`pwd`/%{_target_platform}/../||" $RPM_BUILD_ROOT%{_includedir}/json-glib-1.0/json-glib/json-enum-types.h
 
 %find_lang json-glib-1.0
 
-%post -p /sbin/ldconfig
 
+%post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
 
@@ -79,10 +83,19 @@ find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 %{_mandir}/man1/json-glib-validate.1*
 
 %files tests
-%{_libexecdir}/installed-tests/%{name}
-%{_datadir}/installed-tests
+%{_libexecdir}/installed-tests/
+%{_datadir}/installed-tests/
+
 
 %changelog
+* Mon Sep 03 2018 Kalev Lember <klember@redhat.com> - 1.4.2-2
+- Fix multilib -devel installs
+- Resolves: #1624842
+
+* Wed Sep 13 2017 Kalev Lember <klember@redhat.com> - 1.4.2-1
+- Update to 1.4.2
+- Resolves: #1569284
+
 * Mon Mar 13 2017 Kalev Lember <klember@redhat.com> - 1.2.6-1
 - Update to 1.2.6
 - Resolves: #1386996

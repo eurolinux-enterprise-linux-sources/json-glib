@@ -321,7 +321,7 @@ json_reader_set_error (JsonReader      *reader,
  * Retrieves the #GError currently set on @reader, if the #JsonReader
  * is in error state
  *
- * Return value: (transfer none): the pointer to the error, or %NULL
+ * Return value: (nullable) (transfer none): the pointer to the error, or %NULL
  *
  * Since: 0.12
  */
@@ -471,7 +471,7 @@ json_reader_read_element (JsonReader *reader,
   if (!(JSON_NODE_HOLDS_ARRAY (priv->current_node) ||
         JSON_NODE_HOLDS_OBJECT (priv->current_node)))
     return json_reader_set_error (reader, JSON_READER_ERROR_NO_ARRAY,
-                                  _("The current node is of type '%s', but "
+                                  _("The current node is of type “%s”, but "
                                     "an array or an object was expected."),
                                   json_node_type_name (priv->current_node));
 
@@ -483,7 +483,7 @@ json_reader_read_element (JsonReader *reader,
 
         if (index_ >= json_array_get_length (array))
           return json_reader_set_error (reader, JSON_READER_ERROR_INVALID_INDEX,
-                                        _("The index '%d' is greater than the size "
+                                        _("The index “%d” is greater than the size "
                                           "of the array at the current position."),
                                         index_);
 
@@ -495,24 +495,22 @@ json_reader_read_element (JsonReader *reader,
     case JSON_NODE_OBJECT:
       {
         JsonObject *object = json_node_get_object (priv->current_node);
-        GList *members;
+        GQueue *members;
         const gchar *name;
 
         if (index_ >= json_object_get_size (object))
           return json_reader_set_error (reader, JSON_READER_ERROR_INVALID_INDEX,
-                                        _("The index '%d' is greater than the size "
+                                        _("The index “%d” is greater than the size "
                                           "of the object at the current position."),
                                         index_);
 
         priv->previous_node = priv->current_node;
 
-        members = json_object_get_members (object);
-        name = g_list_nth_data (members, index_);
+        members = json_object_get_members_internal (object);
+        name = g_queue_peek_nth (members, index_);
 
         priv->current_node = json_object_get_member (object, name);
         g_ptr_array_add (priv->members, g_strdup (name));
-
-        g_list_free (members);
       }
       break;
 
@@ -591,7 +589,7 @@ json_reader_count_elements (JsonReader *reader)
   if (!JSON_NODE_HOLDS_ARRAY (priv->current_node))
     {
       json_reader_set_error (reader, JSON_READER_ERROR_NO_ARRAY,
-                             _("The current position holds a '%s' and not an array"),
+                             _("The current position holds a “%s” and not an array"),
                              json_node_type_get_name (JSON_NODE_TYPE (priv->current_node)));
       return -1;
     }
@@ -667,14 +665,14 @@ json_reader_read_member (JsonReader  *reader,
 
   if (!JSON_NODE_HOLDS_OBJECT (priv->current_node))
     return json_reader_set_error (reader, JSON_READER_ERROR_NO_OBJECT,
-                                  _("The current node is of type '%s', but "
+                                  _("The current node is of type “%s”, but "
                                     "an object was expected."),
                                   json_node_type_name (priv->current_node));
 
   object = json_node_get_object (priv->current_node);
   if (!json_object_has_member (object, member_name))
     return json_reader_set_error (reader, JSON_READER_ERROR_INVALID_MEMBER,
-                                  _("The member '%s' is not defined in the "
+                                  _("The member “%s” is not defined in the "
                                     "object at the current position."),
                                   member_name);
 
@@ -737,7 +735,9 @@ gchar **
 json_reader_list_members (JsonReader *reader)
 {
   JsonReaderPrivate *priv;
-  GList *members, *l;
+  JsonObject *object;
+  GQueue *members;
+  GList *l;
   gchar **retval;
   gint i;
 
@@ -755,22 +755,19 @@ json_reader_list_members (JsonReader *reader)
   if (!JSON_NODE_HOLDS_OBJECT (priv->current_node))
     {
       json_reader_set_error (reader, JSON_READER_ERROR_NO_OBJECT,
-                             _("The current position holds a '%s' and not an object"),
+                             _("The current position holds a “%s” and not an object"),
                              json_node_type_get_name (JSON_NODE_TYPE (priv->current_node)));
       return NULL;
     }
 
-  members = json_object_get_members (json_node_get_object (priv->current_node));
-  if (members == NULL)
-    return NULL;
+  object = json_node_get_object (priv->current_node);
+  members = json_object_get_members_internal (object);
 
-  retval = g_new (gchar*, g_list_length (members) + 1);
-  for (l = members, i = 0; l != NULL; l = l->next, i += 1)
+  retval = g_new (gchar*, g_queue_get_length (members) + 1);
+  for (l = members->head, i = 0; l != NULL; l = l->next, i += 1)
     retval[i] = g_strdup (l->data);
 
   retval[i] = NULL;
-
-  g_list_free (members);
 
   return retval;
 }
@@ -806,7 +803,7 @@ json_reader_count_members (JsonReader *reader)
   if (!JSON_NODE_HOLDS_OBJECT (priv->current_node))
     {
       json_reader_set_error (reader, JSON_READER_ERROR_NO_OBJECT,
-                             _("The current position holds a '%s' and not an object"),
+                             _("The current position holds a “%s” and not an object"),
                              json_node_type_get_name (JSON_NODE_TYPE (priv->current_node)));
       return -1;
     }
@@ -820,9 +817,9 @@ json_reader_count_members (JsonReader *reader)
  *
  * Retrieves the #JsonNode of the current position of @reader
  *
- * Return value: (transfer none): a #JsonNode, or %NULL. The returned node
- *   is owned by the #JsonReader and it should not be modified or freed
- *   directly
+ * Return value: (nullable) (transfer none): a #JsonNode, or %NULL. The
+ * returned node is owned by the #JsonReader and it should not be
+ * modified or freed directly
  *
  * Since: 0.12
  */
@@ -843,10 +840,10 @@ json_reader_get_value (JsonReader *reader)
 
   node = reader->priv->current_node;
 
-  if (!JSON_NODE_HOLDS_VALUE (node))
+  if (!JSON_NODE_HOLDS_VALUE (node) && !JSON_NODE_HOLDS_NULL (node))
     {
       json_reader_set_error (reader, JSON_READER_ERROR_NO_VALUE,
-                             _("The current position holds a '%s' and not a value"),
+                             _("The current position holds a “%s” and not a value"),
                              json_node_type_get_name (JSON_NODE_TYPE (node)));
       return NULL;
     }
@@ -884,7 +881,7 @@ json_reader_get_int_value (JsonReader *reader)
   if (!JSON_NODE_HOLDS_VALUE (node))
     {
       json_reader_set_error (reader, JSON_READER_ERROR_NO_VALUE,
-                             _("The current position holds a '%s' and not a value"),
+                             _("The current position holds a “%s” and not a value"),
                              json_node_type_get_name (JSON_NODE_TYPE (node)));
       return 0;
     }
@@ -922,7 +919,7 @@ json_reader_get_double_value (JsonReader *reader)
   if (!JSON_NODE_HOLDS_VALUE (node))
     {
       json_reader_set_error (reader, JSON_READER_ERROR_NO_VALUE,
-                             _("The current position holds a '%s' and not a value"),
+                             _("The current position holds a “%s” and not a value"),
                              json_node_type_get_name (JSON_NODE_TYPE (node)));
       return 0.0;
     }
@@ -960,7 +957,7 @@ json_reader_get_string_value (JsonReader *reader)
   if (!JSON_NODE_HOLDS_VALUE (node))
     {
       json_reader_set_error (reader, JSON_READER_ERROR_NO_VALUE,
-                             _("The current position holds a '%s' and not a value"),
+                             _("The current position holds a “%s” and not a value"),
                              json_node_type_get_name (JSON_NODE_TYPE (node)));
       return NULL;
     }
@@ -1005,7 +1002,7 @@ json_reader_get_boolean_value (JsonReader *reader)
   if (!JSON_NODE_HOLDS_VALUE (node))
     {
       json_reader_set_error (reader, JSON_READER_ERROR_NO_VALUE,
-                             _("The current position holds a '%s' and not a value"),
+                             _("The current position holds a “%s” and not a value"),
                              json_node_type_get_name (JSON_NODE_TYPE (node)));
       return FALSE;
     }
@@ -1045,7 +1042,7 @@ json_reader_get_null_value (JsonReader *reader)
  *
  * Retrieves the name of the current member.
  *
- * Return value: (transfer none): the name of the member, or %NULL
+ * Return value: (nullable) (transfer none): the name of the member, or %NULL
  *
  * Since: 0.14
  */
