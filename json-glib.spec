@@ -1,18 +1,20 @@
-%define glib_ver 2.16
+%define glib_ver 2.37.6
 
 Name:		json-glib
-Version:	0.16.0
-Release:	3%{?dist}
+Version:	1.0.2
+Release:	1%{?dist}
 Summary:	Library for JavaScript Object Notation format
 
 Group:		System Environment/Libraries
 License:	LGPLv2+
-URL:		http://live.gnome.org/JsonGlib
+URL:		https://wiki.gnome.org/Projects/JsonGlib
 #VCS:		git:git://git.gnome.org/json-glib
-Source0:	http://download.gnome.org/sources/%{name}/0.16/%{name}-%{version}.tar.xz
+Source0:	http://download.gnome.org/sources/%{name}/1.0/%{name}-%{version}.tar.xz
 
+BuildRequires:	docbook-style-xsl
 BuildRequires:	glib2-devel >= %{glib_ver}
 BuildRequires:	gobject-introspection-devel
+BuildRequires:	/usr/bin/xsltproc
 
 
 %description
@@ -23,10 +25,7 @@ for the JavaScript Object Notation (JSON) format.
 %package devel
 Summary:	Development files for %{name}
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= %{glib_ver}
-Requires:	pkgconfig
-
+Requires:	%{name}%{_isa} = %{version}-%{release}
 
 %description devel
 The %{name}-devel package contains libraries and header files for
@@ -70,9 +69,17 @@ cp -a doc/reference/html/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/%{name}/
 %{_includedir}/%{name}-1.0/
 %{_datadir}/gtk-doc/
 %{_datadir}/gir-1.0/Json-1.0.gir
+%{_bindir}/json-glib-format
+%{_bindir}/json-glib-validate
+%{_mandir}/man1/json-glib-format.1*
+%{_mandir}/man1/json-glib-validate.1*
 
 
 %changelog
+* Fri May 30 2014 Kalev Lember <kalevlember@gmail.com> - 1.0.2-1
+- Update to 1.0.2
+- Resolves: #1174501
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.16.0-3
 - Mass rebuild 2014-01-24
 
