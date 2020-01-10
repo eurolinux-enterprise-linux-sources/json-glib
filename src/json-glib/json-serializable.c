@@ -27,7 +27,9 @@
  * json_serialize_gobject() respectively.
  */
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
 
 #include <string.h>
 #include <stdlib.h>
@@ -182,14 +184,12 @@ G_DEFINE_INTERFACE (JsonSerializable, json_serializable, G_TYPE_OBJECT);
  * @pspec: a #GParamSpec
  *
  * Calls the default implementation of the #JsonSerializable
- * #JsonSerializableIface.serialize_property() virtual function.
+ * serialize_property() virtual function
  *
  * This function can be used inside a custom implementation
- * of the #JsonSerializableIface.serialize_property() virtual
- * function in lieu of calling the default implementation
- * through g_type_default_interface_peek():
+ * of the serialize_property() virtual function in lieu of:
  *
- * |[<!-- language="C" -->
+ * |[
  *   JsonSerializable *iface;
  *   JsonNode *node;
  *
@@ -234,7 +234,7 @@ json_serializable_default_serialize_property (JsonSerializable *serializable,
  * This function can be used inside a custom implementation
  * of the deserialize_property() virtual function in lieu of:
  *
- * |[<!-- language="C" -->
+ * |[
  *   JsonSerializable *iface;
  *   gboolean res;
  *
@@ -273,10 +273,9 @@ json_serializable_default_deserialize_property (JsonSerializable *serializable,
  * @serializable: a #JsonSerializable
  * @name: the name of the property
  *
- * Calls the #JsonSerializableIface.find_property() implementation on
- * the @serializable instance. *
+ * FIXME
  *
- * Return value: (nullable) (transfer none): the #GParamSpec for the property
+ * Return value: (transfer none): the #GParamSpec for the property
  *   or %NULL if no property was found
  *
  * Since: 0.14
@@ -297,8 +296,7 @@ json_serializable_find_property (JsonSerializable *serializable,
  * @n_pspecs: (out): return location for the length of the array
  *   of #GParamSpec returned by the function
  *
- * Calls the #JsonSerializableIface.list_properties() implementation on
- * the @serializable instance.
+ * FIXME
  *
  * Return value: (array length=n_pspecs) (transfer container): an array
  *   of #GParamSpec. Use g_free() to free the array when done.
@@ -314,17 +312,6 @@ json_serializable_list_properties (JsonSerializable *serializable,
   return JSON_SERIALIZABLE_GET_IFACE (serializable)->list_properties (serializable, n_pspecs);
 }
 
-/**
- * json_serializable_set_property:
- * @serializable: a #JsonSerializable
- * @pspec: a #GParamSpec
- * @value: the property value to set
- *
- * Calls the #JsonSerializableIface.set_property() implementation
- * on the @serializable instance.
- *
- * Since: 0.14
- */
 void
 json_serializable_set_property (JsonSerializable *serializable,
                                 GParamSpec       *pspec,
@@ -339,17 +326,6 @@ json_serializable_set_property (JsonSerializable *serializable,
                                                             value);
 }
 
-/**
- * json_serializable_get_property:
- * @serializable: a #JsonSerializable
- * @pspec: a #GParamSpec
- * @value: (out): return location for the property value
- *
- * Calls the #JsonSerializableIface.get_property() implementation
- * on the @serializable instance.
- *
- * Since: 0.14
- */
 void
 json_serializable_get_property (JsonSerializable *serializable,
                                 GParamSpec       *pspec,

@@ -6,7 +6,7 @@
 
 #include <json-glib/json-glib.h>
 
-static const gchar *complex_object = "{\"depth1\":[1,{\"depth2\":[3,[null,false],\"after array\"],\"value2\":true}],\"object1\":{},\"value3\":null,\"value4\":42,\"\":54}";
+static const gchar *complex_object = "{\"depth1\":[1,{\"depth2\":[3,[null,false],\"after array\"],\"value2\":true}],\"object1\":{},\"value3\":null,\"value4\":42}";
 
 static const gchar *empty_object = "{\"a\":{}}";
 
@@ -57,9 +57,6 @@ test_builder_complex (void)
 
   json_builder_set_member_name (builder, "value4");
   json_builder_add_int_value (builder, 42);
-
-  json_builder_set_member_name (builder, "");
-  json_builder_add_int_value (builder, 54);
 
   json_builder_end_object (builder);
 
@@ -160,10 +157,13 @@ int
 main (int   argc,
       char *argv[])
 {
+#if !GLIB_CHECK_VERSION (2, 35, 1)
+  g_type_init ();
+#endif
   g_test_init (&argc, &argv, NULL);
 
   g_test_add_func ("/builder/complex", test_builder_complex);
-  g_test_add_func ("/builder/empty", test_builder_empty);
+  g_test_add_func ("/builder/complex", test_builder_empty);
   g_test_add_func ("/builder/reset", test_builder_reset);
 
   return g_test_run ();

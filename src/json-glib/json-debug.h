@@ -8,18 +8,15 @@ G_BEGIN_DECLS
 typedef enum {
   JSON_DEBUG_PARSER  = 1 << 0,
   JSON_DEBUG_GOBJECT = 1 << 1,
-  JSON_DEBUG_PATH    = 1 << 2,
-  JSON_DEBUG_NODE    = 1 << 3
+  JSON_DEBUG_PATH    = 1 << 2
 } JsonDebugFlags;
-
-#define JSON_HAS_DEBUG(flag)    (json_get_debug_flags () & JSON_DEBUG_##flag)
 
 #ifdef JSON_ENABLE_DEBUG
 
 # ifdef __GNUC__
 
 # define JSON_NOTE(type,x,a...)                 G_STMT_START {  \
-        if (JSON_HAS_DEBUG (type)) {                            \
+        if (_json_get_debug_flags () & JSON_DEBUG_##type) {     \
           g_message ("[" #type "] " G_STRLOC ": " x, ##a);      \
         }                                       } G_STMT_END
 
@@ -29,7 +26,7 @@ typedef enum {
  * do an intemediate printf.
  */
 # define JSON_NOTE(type,...)                    G_STMT_START {  \
-        if (JSON_HAS_DEBUG (type)) {                            \
+        if (_json_get_debug_flags () & JSON_DEBUG_##type) {     \
             gchar * _fmt = g_strdup_printf (__VA_ARGS__);       \
             g_message ("[" #type "] " G_STRLOC ": %s",_fmt);    \
             g_free (_fmt);                                      \
@@ -43,8 +40,7 @@ typedef enum {
 
 #endif /* JSON_ENABLE_DEBUG */
 
-G_GNUC_INTERNAL
-JsonDebugFlags json_get_debug_flags (void);
+JsonDebugFlags _json_get_debug_flags (void);
 
 G_END_DECLS
 

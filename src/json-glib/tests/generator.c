@@ -1,4 +1,6 @@
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -16,7 +18,7 @@ static const gchar *empty_object = "{}";
 static const gchar *simple_array = "[true,false,null,42,\"foo\"]";
 static const gchar *nested_array = "[true,[false,null],42]";
 
-static const gchar *simple_object = "{\"Bool1\":true,\"Bool2\":false,\"Null\":null,\"Int\":42,\"\":54,\"String\":\"foo\"}";
+static const gchar *simple_object = "{\"Bool1\":true,\"Bool2\":false,\"Null\":null,\"Int\":42,\"String\":\"foo\"}";
 /* taken from the RFC 4627, Examples section */
 static const gchar *nested_object =
 "{"
@@ -209,7 +211,6 @@ test_simple_object (void)
   json_object_set_boolean_member (object, "Bool2", FALSE);
   json_object_set_null_member (object, "Null");
   json_object_set_int_member (object, "Int", 42);
-  json_object_set_int_member (object, "", 54);
   json_object_set_string_member (object, "String", "foo");
 
   json_node_take_object (root, object);
@@ -335,27 +336,6 @@ test_decimal_separator (void)
   json_node_free (node);
 }
 
-
-static void
-test_double_stays_double (void)
-{
-  gchar *str;
-  JsonNode *node = json_node_new (JSON_NODE_VALUE);
-  JsonGenerator *generator = json_generator_new ();
-
-  json_node_set_double (node, 1.0);
-
-  json_generator_set_root (generator, node);
-
-  str = json_generator_to_data (generator, NULL);
-  g_assert_cmpstr (str, ==, "1.0");
-
-  g_free (str);
-  g_object_unref (generator);
-  json_node_free (node);
-}
-
-
 static void
 test_pretty (void)
 {
@@ -397,48 +377,13 @@ test_pretty (void)
   g_object_unref (parser);
 }
 
-typedef struct {
-    const gchar *str;
-    const gchar *expect;
-} FixtureString;
-
-static const FixtureString string_fixtures[] = {
-  { "abc", "\"abc\"" },
-  { "a\x7fxc", "\"a\\u007fxc\"" },
-  { "a\033xc", "\"a\\u001bxc\"" },
-  { "a\nxc", "\"a\\nxc\"" },
-  { "a\\xc", "\"a\\\\xc\"" },
-  { "Barney B\303\244r", "\"Barney B\303\244r\"" },
-};
-
-static void
-test_string_encode (gconstpointer data)
-{
-  const FixtureString *fixture = data;
-  JsonGenerator *generator = json_generator_new ();
-  JsonNode *node;
-  gsize length;
-  gchar *output;
-
-  node = json_node_init_string (json_node_alloc (), fixture->str);\
-  json_generator_set_root (generator, node);
-
-  output = json_generator_to_data (generator, &length);
-  g_assert_cmpstr (output, ==, fixture->expect);
-  g_assert_cmpuint (length, ==, strlen (fixture->expect));
-  g_free (output);
-  json_node_free (node);
-
-  g_object_unref (generator);
-}
 int
 main (int   argc,
       char *argv[])
 {
-  gchar *escaped;
-  gchar *name;
-  gint i;
-
+#if !GLIB_CHECK_VERSION (2, 35, 1)
+  g_type_init ();
+#endif
   g_test_init (&argc, &argv, NULL);
 
   g_test_add_func ("/generator/empty-array", test_empty_array);
@@ -448,17 +393,7 @@ main (int   argc,
   g_test_add_func ("/generator/simple-object", test_simple_object);
   g_test_add_func ("/generator/nested-object", test_nested_object);
   g_test_add_func ("/generator/decimal-separator", test_decimal_separator);
-  g_test_add_func ("/generator/double-stays-double", test_double_stays_double);
   g_test_add_func ("/generator/pretty", test_pretty);
-
-  for (i = 0; i < G_N_ELEMENTS (string_fixtures); i++)
-    {
-      escaped = g_strescape (string_fixtures[i].str, NULL);
-      name = g_strdup_printf ("/generator/string/%s", escaped);
-      g_test_add_data_func (name, string_fixtures + i, test_string_encode);
-      g_free (escaped);
-      g_free (name);
-    }
 
   return g_test_run ();
 }

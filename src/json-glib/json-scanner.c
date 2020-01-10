@@ -17,10 +17,14 @@
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, see <http://www.gnu.org/licenses/>.
+ * License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ * Boston, MA 02111-1307, USA.
  */
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
 
 #include <errno.h>
 #include <stdlib.h>
@@ -129,6 +133,25 @@ static JsonScannerConfig json_scanner_config_template =
 )
 
 #define	READ_BUFFER_SIZE	(4000)
+
+static const gchar json_symbol_names[] =
+  "true\0"
+  "false\0"
+  "null\0"
+  "var\0";
+
+static const struct
+{
+  guint name_offset;
+  guint token;
+} json_symbols[] = {
+  {  0, JSON_TOKEN_TRUE },
+  {  5, JSON_TOKEN_FALSE },
+  { 11, JSON_TOKEN_NULL },
+  { 16, JSON_TOKEN_VAR }
+};
+
+static const guint n_json_symbols = G_N_ELEMENTS (json_symbols);
 
 /* --- typedefs --- */
 typedef	struct	_JsonScannerKey JsonScannerKey;
@@ -554,30 +577,6 @@ json_scanner_get_unichar (JsonScanner *scanner,
   g_assert (g_unichar_validate (uchar) || g_unichar_type (uchar) == G_UNICODE_SURROGATE);
 
   return uchar;
-}
-
-/*
- * decode_utf16_surrogate_pair:
- * @units: (array length=2): a pair of UTF-16 code points
- *
- * Decodes a surrogate pair of UTF-16 code points into the equivalent
- * Unicode code point.
- *
- * Returns: the Unicode code point equivalent to the surrogate pair
- */
-static inline gunichar
-decode_utf16_surrogate_pair (const gunichar units[2])
-{
-  gunichar ucs;
-
-  g_assert (0xd800 <= units[0] && units[0] <= 0xdbff);
-  g_assert (0xdc00 <= units[1] && units[1] <= 0xdfff);
-
-  ucs = 0x10000;
-  ucs += (units[0] & 0x3ff) << 10;
-  ucs += (units[1] & 0x3ff);
-
-  return ucs;
 }
 
 void
@@ -1116,25 +1115,19 @@ json_scanner_get_token_ll (JsonScanner *scanner,
 
                               ucs = json_scanner_get_unichar (scanner, line_p, position_p);
 
-                              /* resolve UTF-16 surrogates for Unicode characters not in the BMP,
-                                * as per ECMA 404, § 9, "String"
-                                */
                               if (g_unichar_type (ucs) == G_UNICODE_SURROGATE)
                                 {
                                   /* read next surrogate */
-                                  if ('\\' == json_scanner_get_char (scanner, line_p, position_p) &&
-                                      'u' == json_scanner_get_char (scanner, line_p, position_p))
+                                  if ('\\' == json_scanner_get_char (scanner, line_p, position_p)
+                                      && 'u' == json_scanner_get_char (scanner, line_p, position_p))
                                     {
-                                      gunichar units[2];
-
-                                      units[0] = ucs;
-                                      units[1] = json_scanner_get_unichar (scanner, line_p, position_p);
-
-                                      ucs = decode_utf16_surrogate_pair (units);
-                                      g_assert (g_unichar_validate (ucs));
+                                      gunichar ucs_lo = json_scanner_get_unichar (scanner, line_p, position_p);
+                                      g_assert (g_unichar_type (ucs_lo) == G_UNICODE_SURROGATE);
+                                      ucs = (((ucs & 0x3ff) << 10) | (ucs_lo & 0x3ff)) + 0x10000;
                                     }
                                 }
 
+                              g_assert (g_unichar_validate (ucs));
                               gstring = g_string_append_unichar (gstring, ucs);
                             }
                           break;

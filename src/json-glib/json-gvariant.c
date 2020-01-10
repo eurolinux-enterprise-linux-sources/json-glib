@@ -17,7 +17,9 @@
  *   Eduardo Lima Mitev  <elima@igalia.com>
  */
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,13 +27,7 @@
 
 #include <glib/gi18n-lib.h>
 
-#include <gio/gio.h>
-
 #include "json-gvariant.h"
-
-#include "json-generator.h"
-#include "json-parser.h"
-#include "json-types-private.h"
 
 /**
  * SECTION:json-gvariant
@@ -50,29 +46,49 @@
  * JSON, a #GVariant type string (signature) should be provided to these
  * methods in order to obtain a correct, type-contrained result.
  * If no signature is provided, conversion can still be done, but the
- * resulting #GVariant value will be "guessed" from the JSON data types
- * using the following rules:
+ * resulting #GVariant value will be "guessed" from the JSON data types,
+ * according to the following table:
  *
- * ## Strings
- * JSON strings map to GVariant `(s)`.
- *
- * ## Integers
- * JSON integers map to GVariant int64 `(x)`.
- *
- * ## Booleans
- * JSON booleans map to GVariant boolean `(b)`.
- *
- * ## Numbers
- * JSON numbers map to GVariant double `(d)`.
- *
- * ## Arrays
- * JSON arrays map to GVariant arrays of variants `(av)`.
- *
- * ## Objects
- * JSON objects map to GVariant dictionaries of string to variants `(a{sv})`.
- *
- * ## Null values
- * JSON null values map to GVariant maybe variants `(mv)`.
+ * <table frame='all'><title>Default JSON to GVariant conversion (without signature constrains)</title>
+ *  <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+ *   <thead>
+ *     <row>
+ *       <entry>JSON</entry>
+ *       <entry>GVariant</entry>
+ *     </row>
+ *   </thead>
+ *   <tfoot>
+ *    <row>
+ *     <entry>string</entry>
+ *     <entry>string (s)</entry>
+ *    </row>
+ *    <row>
+ *     <entry>int64</entry>
+ *     <entry>int64 (x)</entry>
+ *    </row>
+ *    <row>
+ *     <entry>boolean</entry>
+ *     <entry>boolean (b)</entry>
+ *    </row>
+ *    <row>
+ *     <entry>double</entry>
+ *     <entry>double (d)</entry>
+ *    </row>
+ *    <row>
+ *     <entry>array</entry>
+ *     <entry>array of variants (av)</entry>
+ *    </row>
+ *    <row>
+ *     <entry>object</entry>
+ *     <entry>dictionary of string-variant (a{sv})</entry>
+ *    </row>
+ *    <row>
+ *     <entry>null</entry>
+ *     <entry>maybe variant (mv)</entry>
+ *    </row>
+ *   </tfoot>
+ *  </tgroup>
+ * </table>
  */
 
 /* custom extension to the GVariantClass enumeration to differentiate
@@ -441,7 +457,7 @@ json_gvariant_serialize_data (GVariant *variant, gsize *length)
 
   g_object_unref (generator);
 
-  json_node_unref (json_node);
+  json_node_free (json_node);
 
   return json;
 }
@@ -517,11 +533,11 @@ json_node_assert_type (JsonNode       *json_node,
       (type == JSON_NODE_VALUE &&
        (json_node_get_value_type (json_node) != sub_type)))
     {
+      /* translators: the '%s' is the type name */
       g_set_error (error,
                    G_IO_ERROR,
                    G_IO_ERROR_INVALID_DATA,
-                   /* translators: the '%s' is the type name */
-                   _("Unexpected type “%s” in JSON node"),
+                   _("Unexpected type '%s' in JSON node"),
                    g_type_name (json_node_get_value_type (json_node)));
       return FALSE;
     }
@@ -619,7 +635,7 @@ json_to_gvariant_tuple (JsonNode     *json_node,
           g_set_error_literal (error,
                                G_IO_ERROR,
                                G_IO_ERROR_INVALID_DATA,
-                               _("Missing closing symbol “)” in the GVariant tuple type"));
+                               _("Missing closing symbol ')' in the GVariant tuple type"));
           roll_back = TRUE;
         }
       else if (json_array_get_length (array) >= i)
@@ -762,7 +778,7 @@ json_to_gvariant_array (JsonNode     *json_node,
   JsonArray *array;
   GList *children = NULL;
   gboolean roll_back = FALSE;
-  const gchar *orig_signature = NULL;
+  const gchar *orig_signature;
   gchar *child_signature;
 
   array = json_node_get_array (json_node);
@@ -948,7 +964,8 @@ json_to_gvariant_dict_entry (JsonNode     *json_node,
   gchar *value_signature;
   const gchar *tmp_signature;
 
-  GQueue *members;
+  GList *member;
+
   const gchar *json_member;
   JsonNode *json_value;
   GVariant *variant_member;
@@ -970,8 +987,9 @@ json_to_gvariant_dict_entry (JsonNode     *json_node,
                               &key_signature,
                               &value_signature);
 
-  members = json_object_get_members_internal (obj);
-  json_member = (const gchar *) members->head->data;
+  member = json_object_get_members (obj);
+
+  json_member = (const gchar *) member->data;
   variant_member = gvariant_simple_from_string (json_member,
                                                 key_signature[0],
                                                 error);
@@ -997,6 +1015,7 @@ json_to_gvariant_dict_entry (JsonNode     *json_node,
         }
     }
 
+  g_list_free (member);
   g_free (value_signature);
   g_free (key_signature);
   g_free (entry_signature);
@@ -1024,7 +1043,7 @@ json_to_gvariant_dictionary (JsonNode     *json_node,
   const gchar *tmp_signature;
 
   GVariantBuilder *builder;
-  GQueue *members;
+  GList *members;
   GList *member;
 
   obj = json_node_get_object (json_node);
@@ -1041,9 +1060,10 @@ json_to_gvariant_dictionary (JsonNode     *json_node,
 
   builder = g_variant_builder_new (G_VARIANT_TYPE (dict_signature));
 
-  members = json_object_get_members_internal (obj);
+  members = json_object_get_members (obj);
 
-  for (member = members->head; member != NULL; member = member->next)
+  member = members;
+  while (member != NULL)
     {
       const gchar *json_member;
       JsonNode *json_value;
@@ -1079,12 +1099,15 @@ json_to_gvariant_dictionary (JsonNode     *json_node,
           roll_back = TRUE;
           break;
         }
+
+      member = member->next;
     }
 
   if (! roll_back)
     variant = g_variant_builder_end (builder);
 
   g_variant_builder_unref (builder);
+  g_list_free (members);
   g_free (value_signature);
   g_free (key_signature);
   g_free (entry_signature);
@@ -1113,30 +1136,6 @@ json_to_gvariant_recurse (JsonNode      *json_node,
         variant = json_to_gvariant_dictionary (json_node, signature, error);
 
       goto out;
-    }
-
-  if (JSON_NODE_TYPE (json_node) == JSON_NODE_VALUE &&
-      json_node_get_value_type (json_node) == G_TYPE_STRING)
-    {
-      const gchar* str = json_node_get_string (json_node);
-      switch (class)
-        {
-        case G_VARIANT_CLASS_BOOLEAN:
-        case G_VARIANT_CLASS_BYTE:
-        case G_VARIANT_CLASS_INT16:
-        case G_VARIANT_CLASS_UINT16:
-        case G_VARIANT_CLASS_INT32:
-        case G_VARIANT_CLASS_UINT32:
-        case G_VARIANT_CLASS_INT64:
-        case G_VARIANT_CLASS_UINT64:
-        case G_VARIANT_CLASS_HANDLE:
-        case G_VARIANT_CLASS_DOUBLE:
-        case G_VARIANT_CLASS_STRING:
-          variant = gvariant_simple_from_string (str, class, error);
-          goto out;
-        default:
-          break;
-        }
     }
 
   switch (class)
@@ -1187,11 +1186,7 @@ json_to_gvariant_recurse (JsonNode      *json_node,
       break;
 
     case G_VARIANT_CLASS_DOUBLE:
-      /* Doubles can look like ints to the json parser: when they don't have a dot */
-      if (JSON_NODE_TYPE (json_node) == JSON_NODE_VALUE &&
-          json_node_get_value_type (json_node) == G_TYPE_INT64)
-        variant = g_variant_new_double (json_node_get_int (json_node));
-      else if (json_node_assert_type (json_node, JSON_NODE_VALUE, G_TYPE_DOUBLE, error))
+      if (json_node_assert_type (json_node, JSON_NODE_VALUE, G_TYPE_DOUBLE, error))
         variant = g_variant_new_double (json_node_get_double (json_node));
       break;
 
@@ -1239,7 +1234,7 @@ json_to_gvariant_recurse (JsonNode      *json_node,
       g_set_error (error,
                    G_IO_ERROR,
                    G_IO_ERROR_INVALID_DATA,
-                   _("GVariant class “%c” not supported"), class);
+                   _("GVariant class '%c' not supported"), class);
       break;
     }
 

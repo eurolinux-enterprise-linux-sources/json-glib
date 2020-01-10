@@ -28,12 +28,6 @@
 
 G_BEGIN_DECLS
 
-#define JSON_NODE_IS_VALID(n) \
-  ((n) != NULL && \
-   (n)->type >= JSON_NODE_OBJECT && \
-   (n)->type <= JSON_NODE_NULL && \
-   (n)->ref_count >= 1)
-
 typedef struct _JsonValue JsonValue;
 
 typedef enum {
@@ -50,10 +44,6 @@ struct _JsonNode
   /*< private >*/
   JsonNodeType type;
 
-  volatile gint ref_count;
-  gboolean immutable : 1;
-  gboolean allocated : 1;
-
   union {
     JsonObject *object;
     JsonArray *array;
@@ -63,8 +53,8 @@ struct _JsonNode
   JsonNode *parent;
 };
 
-#define JSON_VALUE_INIT                 { JSON_VALUE_INVALID, 1, FALSE, { 0 }, NULL }
-#define JSON_VALUE_INIT_TYPE(t)         { (t), 1, FALSE, { 0 }, NULL }
+#define JSON_VALUE_INIT                 { JSON_VALUE_INVALID, 1, { 0 } }
+#define JSON_VALUE_INIT_TYPE(t)         { (t), 1, { 0 } }
 #define JSON_VALUE_IS_VALID(v)          ((v) != NULL && (v)->type != JSON_VALUE_INVALID)
 #define JSON_VALUE_HOLDS(v,t)           ((v) != NULL && (v)->type == (t))
 #define JSON_VALUE_HOLDS_INT(v)         (JSON_VALUE_HOLDS((v), JSON_VALUE_INT))
@@ -79,7 +69,6 @@ struct _JsonValue
   JsonValueType type;
 
   volatile gint ref_count;
-  gboolean immutable : 1;
 
   union {
     gint64 v_int;
@@ -93,38 +82,23 @@ struct _JsonArray
 {
   GPtrArray *elements;
 
-  guint immutable_hash;  /* valid iff immutable */
   volatile gint ref_count;
-  gboolean immutable : 1;
 };
 
 struct _JsonObject
 {
   GHashTable *members;
 
-  GQueue members_ordered;
+  /* the members of the object, ordered in reverse */
+  GList *members_ordered;
 
-  guint immutable_hash;  /* valid iff immutable */
   volatile gint ref_count;
-  gboolean immutable : 1;
 };
-
-typedef struct
-{
-  JsonObject *object;  /* unowned */
-  GHashTableIter members_iter;  /* iterator over @members */
-  gpointer padding[2];  /* for future expansion */
-} JsonObjectIterReal;
-
-G_STATIC_ASSERT (sizeof (JsonObjectIterReal) == sizeof (JsonObjectIter));
 
 G_GNUC_INTERNAL
 const gchar *   json_node_type_get_name         (JsonNodeType     node_type);
 G_GNUC_INTERNAL
 const gchar *   json_value_type_get_name        (JsonValueType    value_type);
-
-G_GNUC_INTERNAL
-GQueue *        json_object_get_members_internal (JsonObject     *object);
 
 G_GNUC_INTERNAL
 GType           json_value_type                 (const JsonValue *value);
@@ -162,12 +136,6 @@ void            json_value_set_string           (JsonValue       *value,
                                                  const gchar     *v_str);
 G_GNUC_INTERNAL
 const gchar *   json_value_get_string           (const JsonValue *value);
-
-G_GNUC_INTERNAL
-void            json_value_seal                 (JsonValue       *value);
-
-G_GNUC_INTERNAL
-guint           json_value_hash                 (gconstpointer    key);
 
 G_END_DECLS
 
